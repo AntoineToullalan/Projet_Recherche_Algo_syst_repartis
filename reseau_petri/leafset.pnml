@@ -406,7 +406,7 @@
       </place>
       <place id="p61">
         <name>
-          <text>le_LeafSet_de_Gx_est_envoye_a_D1</text>
+          <text>le_LeafSet_de_Dx_est_envoye_a_D1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
