@@ -203,7 +203,7 @@
       </place>
       <place id="p14">
         <name>
-          <text>M_actif_sans_panne_detectee</text>
+          <text>M_actif</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -649,7 +649,7 @@
       </place>
       <place id="p0">
         <name>
-          <text>G1_actif_sans_panne_detectee</text>
+          <text>G1_actif</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -662,33 +662,13 @@
         </name>
         <graphics>
           <dimension x="40.0" y="40.0"/>
-          <position x="795.5" y="1220.0"/>
+          <position x="810.5" y="1160.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <initialMarking>
           <text>1</text>
         </initialMarking>
-      </place>
-      <place id="p1">
-        <name>
-          <text>G1_ne_repond_plus_a_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="1713.0" y="1243.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
       </place>
       <place id="p2">
         <name>
@@ -745,7 +725,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2078.0" y="177.0"/>
+          <position x="1913.0" y="97.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -896,26 +876,6 @@
           <text>1</text>
         </initialMarking>
       </place>
-      <place id="p31">
-        <name>
-          <text>M_ne_repind_plus_a_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3233.0" y="848.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
       <place id="p34">
         <name>
           <text>D1_veut_gerer_la_panne_de_M</text>
@@ -958,7 +918,7 @@
       </place>
       <place id="p36">
         <name>
-          <text>D1_ne_repind_plus_a_M</text>
+          <text>D1_ne_repind_plus</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -971,14 +931,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2622.0" y="488.0"/>
+          <position x="2943.0" y="888.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p35">
         <name>
-          <text>G1_ne_repond_plus_a_G1</text>
+          <text>G1_ne_repond_plus</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1096,29 +1056,9 @@
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
-      <place id="p43">
-        <name>
-          <text>D1_ne_repond_plus_a_G1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2783.0" y="1248.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
       <place id="p42">
         <name>
-          <text>M_ne_repond_plus_a_G1</text>
+          <text>M_ne_repond_plus</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1131,7 +1071,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1262.0" y="783.0"/>
+          <position x="2288.0" y="43.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1279,7 +1219,7 @@
       </transition>
       <transition id="t5">
         <name>
-          <text>est_autorise_a_gerer_la_panne_de_D1</text>
+          <text>G1_est_autorise_a_gerer_la_panne_de_D1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1426,7 +1366,7 @@
       </transition>
       <transition id="t32">
         <name>
-          <text>D1_verifie_si_un_autre_noeud_gere_la_panne_de_G1</text>
+          <text>D1_detecte_la_panne_de_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1447,7 +1387,7 @@
       </transition>
       <transition id="t31">
         <name>
-          <text>D1_verifie_si_un_autre_noeud_gere_la_panne_de_M</text>
+          <text>D1_detecte_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1544,7 +1484,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1325.0" y="1420.0"/>
+          <position x="1322.0" y="1333.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1636,7 +1576,7 @@
       </transition>
       <transition id="t16">
         <name>
-          <text>M_verifie_si_un_autre_noeud_gere_la_panne_de_D1</text>
+          <text>M_detecte_la_panne_de_D1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1678,7 +1618,7 @@
       </transition>
       <transition id="t15">
         <name>
-          <text>M_verifie_si_un_autre_noeud_gere_la_panne_de_G1</text>
+          <text>M_detecte_la_panne_de_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2203,7 +2143,7 @@
       </transition>
       <transition id="t1">
         <name>
-          <text>G1_verifie_si_un_autre_noeud_gere_la_panne_de_M</text>
+          <text>G1_detecte_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2224,7 +2164,7 @@
       </transition>
       <transition id="t2">
         <name>
-          <text>G1_verifie_si_un_autre_noeud_gere_la_panne_de_D1</text>
+          <text>G1_detecte_la_panne_de_D1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2237,7 +2177,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1047.0" y="1303.0"/>
+          <position x="1058.0" y="1303.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2264,6 +2204,20 @@
         </graphics>
         <silent>false</silent>
       </transition>
+      <arc id="arcPT_p35t32" source="p35" target="t32">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
       <arc id="arcPT_p18t19" source="p18" target="t19">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -2588,20 +2542,6 @@
         </inscription>
       </arc>
       <arc id="arcPT_p38t36" source="p38" target="t36">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t30p43" source="t30" target="p43">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3079,20 +3019,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t14p31" source="t14" target="p31">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t31p32" source="t31" target="p32">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3324,20 +3250,6 @@
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
           <position x="3709.0" y="1306.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p31t31" source="p31" target="t31">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3630,20 +3542,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t0p1" source="t0" target="p1">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p45t40" source="p45" target="t40">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3659,6 +3557,20 @@
         </inscription>
       </arc>
       <arc id="arcPT_p48t33" source="p48" target="t33">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcPT_p36t2" source="p36" target="t2">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3842,20 +3754,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p1t32" source="p1" target="t32">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t24p26" source="t24" target="p26">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -4026,20 +3924,6 @@
         </inscription>
       </arc>
       <arc id="arcPT_p0t1" source="p0" target="t1">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p43t2" source="p43" target="t2">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -4294,6 +4178,20 @@
         </inscription>
       </arc>
       <arc id="arcTP_t35p39" source="t35" target="p39">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcPT_p42t31" source="p42" target="t31">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
