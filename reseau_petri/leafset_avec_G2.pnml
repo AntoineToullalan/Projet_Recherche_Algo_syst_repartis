@@ -1,5 +1,5 @@
 <pnml xmlns="http://www.pnml.org/version-2009/grammar/pnml">
-  <net id="leafset_2021_04_15.pnml" type="http://ifnml.process-security.de/grammar/v1.0/ptnet">
+  <net id="leafset_avec_G2_2021_04_15.pnml" type="http://ifnml.process-security.de/grammar/v1.0/ptnet">
     <page id="top-level">
       <place id="p50">
         <name>
@@ -16,27 +16,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1074.0" y="3099.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p52">
-        <name>
-          <text>le_LeafSet_de_Dx_est_envoye_a_G1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2109.0" y="3119.0"/>
+          <position x="1347.0" y="4212.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -56,14 +36,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1162.5" y="2787.5"/>
+          <position x="1392.5" y="3832.5"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p10">
         <name>
-          <text>G1_a_demande_son_LeafSet_a_Gx</text>
+          <text>G1_a_demande_son_LeafSet_a_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -76,7 +56,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="739.0" y="2180.0"/>
+          <position x="625.0" y="3875.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -96,34 +76,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2199.0" y="2372.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p53">
-        <name>
-          <text>la_demande_de_G1_est_envoye_a_Dx</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2199.0" y="2984.0"/>
+          <position x="3167.0" y="3362.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p12">
         <name>
-          <text>Gx_a_recu_la_demande_de_D1</text>
+          <text>Gx_a_recu_la_demande_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -136,28 +96,8 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1685.0" y="3303.0"/>
+          <position x="2982.0" y="4383.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p56">
-        <name>
-          <text>la_demande_de_M_est_envoye_a_Dx</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2351.0" y="2364.0"/>
-          <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
@@ -176,7 +116,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1535.0" y="3363.0"/>
+          <position x="2832.0" y="4443.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -196,7 +136,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2034.0" y="2357.0"/>
+          <position x="2712.0" y="3322.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -216,7 +156,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2173.0" y="748.5"/>
+          <position x="2858.0" y="1848.5"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -226,7 +166,7 @@
       </place>
       <place id="p58">
         <name>
-          <text>la_demande_de_D1_est_envoye_a_Gx</text>
+          <text>la_demande_de_G2_est_envoye_a_Gx</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -239,14 +179,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3156.0" y="2114.0"/>
+          <position x="1723.0" y="1662.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p13">
         <name>
-          <text>G1_a_le_LeafSet_de_Gx</text>
+          <text>G1_a_le_LeafSet_de_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -259,28 +199,8 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="725.0" y="2385.0"/>
+          <position x="611.0" y="4080.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p57">
-        <name>
-          <text>le_LeafSet_de_Dx_est_envoye_a_M</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2514.0" y="2357.0"/>
-          <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
@@ -299,14 +219,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1797.0" y="882.0"/>
+          <position x="2487.0" y="1982.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p15">
         <name>
-          <text>D1_veut_gerer_la_panne_G1</text>
+          <text>G2_veut_gerer_la_panne_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -319,14 +239,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3443.0" y="1878.0"/>
+          <position x="243.0" y="1083.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p59">
         <name>
-          <text>le_LeafSet_de_Gx_est_envoye_a_D1</text>
+          <text>le_LeafSet_de_Gx_est_envoye_a_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -339,7 +259,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3216.0" y="2279.0"/>
+          <position x="1672.0" y="1932.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -359,14 +279,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2028.0" y="1052.0"/>
+          <position x="2713.0" y="2152.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p17">
         <name>
-          <text>M_veut_gerer_la_panne_de_D1</text>
+          <text>M_veut_gerer_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -379,14 +299,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2678.0" y="833.0"/>
+          <position x="3352.0" y="1943.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p19">
         <name>
-          <text>M_gere_la_panne_de_D1</text>
+          <text>M_gere_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -399,68 +319,8 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2413.0" y="1007.0"/>
+          <position x="3098.0" y="2107.0"/>
           <fill color="#FF0033" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p61">
-        <name>
-          <text>le_LeafSet_de_Dx_est_envoye_a_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3978.0" y="2703.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p60">
-        <name>
-          <text>la_demande_de_D1_est_envoye_a_Dx</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3993.0" y="2513.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p63">
-        <name>
-          <text>D1_est_le_noeud_maitre</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="4350.0" y="1685.0"/>
-          <fill color="#33CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
@@ -479,14 +339,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1937.0" y="2843.0"/>
+          <position x="2112.5" y="3857.5"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p21">
         <name>
-          <text>M_a_le_LeafSet_de_Gx</text>
+          <text>M_a_le_LeafSet_de_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -499,14 +359,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2053.0" y="1567.0"/>
+          <position x="2738.0" y="2667.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p20">
         <name>
-          <text>M_a_demande_son_LeafSet_a_Gx</text>
+          <text>M_a_demande_son_LeafSet_a_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -519,14 +379,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2043.0" y="1312.0"/>
+          <position x="2728.0" y="2412.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p23">
         <name>
-          <text>Dx_actif_et_absent_du_LeafSet</text>
+          <text>M_est_le_noeud_maitre</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -539,8 +399,8 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2909.0" y="2992.0"/>
-          <fill color="#009999" gradient-color="none"/>
+          <position x="3057.0" y="1837.0"/>
+          <fill color="#FF0000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <initialMarking>
@@ -562,14 +422,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1308.0" y="1498.0"/>
+          <position x="1359.0" y="3232.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p25">
         <name>
-          <text>Dx_a_recu_la_demande_de_M</text>
+          <text>G2_a_detecte_la_panne_du_noeud_maitre</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -582,14 +442,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2896.0" y="3329.0"/>
-          <fill color="#009999" gradient-color="#00CCCC"/>
+          <position x="2003.0" y="3042.0"/>
+          <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p24">
         <name>
-          <text>Dx_a_recu_la_demande_de_G1</text>
+          <text>G1_est_le_noeud_maitre</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -602,14 +462,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2694.0" y="3319.0"/>
-          <fill color="#009999" gradient-color="#00CCCC"/>
+          <position x="418.0" y="3242.0"/>
+          <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p27">
         <name>
-          <text>G1_a_demande_son_LeafSet_a_Dx</text>
+          <text>G1_a_demande_son_LeafSet_a_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -622,34 +482,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1146.0" y="2163.0"/>
+          <position x="1023.0" y="3852.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p26">
-        <name>
-          <text>Dx_a_recu_la_demande_de_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3040.0" y="3242.0"/>
-          <fill color="#009999" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p29">
         <name>
-          <text>M_a_le_LeafSet_de_Dx</text>
+          <text>M_a_le_LeafSet_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -662,14 +502,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2437.0" y="1531.0"/>
+          <position x="3122.0" y="2631.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p28">
         <name>
-          <text>G1_a_le_LeafSet_de_Dx</text>
+          <text>G1_a_le_LeafSet_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -682,7 +522,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1145.0" y="2390.0"/>
+          <position x="1023.0" y="4087.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -702,7 +542,7 @@
         </name>
         <graphics>
           <dimension x="40.0" y="40.0"/>
-          <position x="916.5" y="1654.0"/>
+          <position x="802.5" y="3349.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -725,7 +565,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1322.5" y="1277.5"/>
+          <position x="1368.5" y="3042.5"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -745,14 +585,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="507.0" y="1757.0"/>
+          <position x="372.0" y="3452.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p3">
         <name>
-          <text>G1_veut_gerer_la_panne_de_D1</text>
+          <text>G1_veut_gerer_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -765,7 +605,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1319.0" y="1782.0"/>
+          <position x="1234.0" y="3473.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -785,14 +625,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2317.0" y="423.0"/>
+          <position x="3002.0" y="1523.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p5">
         <name>
-          <text>aucun_noeud_ne_s_occupe_de_la_panne_de_D1</text>
+          <text>aucun_noeud_ne_s_occupe_de_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -805,7 +645,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2979.0" y="1322.0"/>
+          <position x="1832.0" y="1077.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -825,14 +665,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="723.0" y="1932.0"/>
+          <position x="609.0" y="3627.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p7">
         <name>
-          <text>G1_gere_la_panne_de_D1</text>
+          <text>G1_gere_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -845,7 +685,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1157.0" y="1942.0"/>
+          <position x="1007.0" y="3637.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -865,7 +705,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1455.0" y="3028.0"/>
+          <position x="2752.0" y="4108.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -888,14 +728,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1331.0" y="3281.0"/>
+          <position x="2628.0" y="4361.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p30">
         <name>
-          <text>M_a_demande_son_LeafSet_a_Dx</text>
+          <text>M_a_demande_son_LeafSet_a_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -908,14 +748,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2420.0" y="1245.0"/>
+          <position x="3105.0" y="2345.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p32">
         <name>
-          <text>D1_actif</text>
+          <text>G2_actif</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -928,7 +768,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3931.0" y="1696.5"/>
+          <position x="710.0" y="906.5"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -951,7 +791,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2172.0" y="58.0"/>
+          <position x="2857.0" y="1158.0"/>
           <fill color="#00FFCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -961,7 +801,7 @@
       </place>
       <place id="p34">
         <name>
-          <text>D1_veut_gerer_la_panne_de_M</text>
+          <text>G2_veut_gerer_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -974,14 +814,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4433.0" y="1868.0"/>
+          <position x="1247.0" y="1077.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p33">
         <name>
-          <text>D1_gere_la_panne_de_G1</text>
+          <text>G2_gere_la_panne_de_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -994,7 +834,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3671.0" y="2006.0"/>
+          <position x="467.0" y="1233.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1014,7 +854,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2315.0" y="605.0"/>
+          <position x="3008.0" y="1628.0"/>
           <fill color="#FF0000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1034,14 +874,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="560.0" y="1455.0"/>
+          <position x="446.0" y="3150.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p38">
         <name>
-          <text>D1_a_le_LeafSet_de_Gx</text>
+          <text>G2_a_le_LeafSet_de_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1054,14 +894,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3680.0" y="2483.0"/>
+          <position x="459.0" y="1693.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p37">
         <name>
-          <text>D1_gere_la_panne_de_M</text>
+          <text>G2_gere_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1074,14 +914,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4230.0" y="1986.0"/>
+          <position x="1009.0" y="1196.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p39">
         <name>
-          <text>D1_a_demande_son_LeafSet_a_Gx</text>
+          <text>G2_a_demande_son_LeafSet_a_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1094,14 +934,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3674.0" y="2233.0"/>
+          <position x="453.0" y="1443.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p41">
         <name>
-          <text>D1_a_demande_son_LeafSet_a_Dx</text>
+          <text>G2_a_demande_son_LeafSet_a_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1114,14 +954,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4237.0" y="2224.0"/>
+          <position x="1016.0" y="1434.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p40">
         <name>
-          <text>D1_a_le_LeafSet_de_Dx</text>
+          <text>G2_a_le_LeafSet_de_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1134,14 +974,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4251.0" y="2441.0"/>
+          <position x="1031.0" y="1684.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p43">
         <name>
-          <text>D1_ne_repond_plus</text>
+          <text>G2_ne_repond_plus</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1154,7 +994,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3199.0" y="1557.0"/>
+          <position x="1623.0" y="1362.0"/>
           <fill color="#000000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1174,34 +1014,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1973.0" y="443.0"/>
+          <position x="2658.0" y="1543.0"/>
           <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p45">
-        <name>
-          <text>Dx_actif_dans_le_LeafSet</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3025.0" y="2950.0"/>
-          <fill color="#009999" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <place id="p44">
         <name>
-          <text>D1_est_en_panne</text>
+          <text>G2_est_en_panne</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1214,33 +1034,10 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4232.0" y="1558.0"/>
+          <position x="1162.0" y="747.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
-      </place>
-      <place id="p47">
-        <name>
-          <text>M_est_le_noeud_maitre</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2060.0" y="700.0"/>
-          <fill color="#FF0000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <initialMarking>
-          <text>1</text>
-        </initialMarking>
       </place>
       <place id="p46">
         <name>
@@ -1257,54 +1054,14 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1580.0" y="3000.0"/>
+          <position x="2892.0" y="3918.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p49">
-        <name>
-          <text>un_noeud_du_LeafSet_de_Dx_remplace_un_noeud_de_ce_LeafSet</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2363.0" y="2848.0"/>
-          <fill color="#000000" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-      </place>
-      <place id="p48">
-        <name>
-          <text>G1_est_le_noeud_maitre</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="433.0" y="1608.0"/>
-          <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
       </place>
       <transition id="t4">
         <name>
-          <text>G1_demande_son_LeafSet_a_Gx</text>
+          <text>G1_demande_son_LeafSet_a_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1317,7 +1074,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="731.0" y="2040.0"/>
+          <position x="617.0" y="3735.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1325,7 +1082,7 @@
       </transition>
       <transition id="t5">
         <name>
-          <text>G1_prend_en_charge_la_gestion_de_la_panne_de_D1</text>
+          <text>G1_prend_en_charge_la_gestion_de_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1338,7 +1095,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1314.0" y="1927.0"/>
+          <position x="1234.0" y="3638.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1359,7 +1116,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1338.0" y="3143.0"/>
+          <position x="2635.0" y="4223.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1367,7 +1124,7 @@
       </transition>
       <transition id="t7">
         <name>
-          <text>G1_demande_son_LeafSet_a_Dx</text>
+          <text>G1_demande_son_LeafSet_a_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1380,7 +1137,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1149.0" y="2043.0"/>
+          <position x="1035.0" y="3738.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1401,7 +1158,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1530.0" y="3208.0"/>
+          <position x="2827.0" y="4288.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1409,7 +1166,7 @@
       </transition>
       <transition id="t9">
         <name>
-          <text>GX_recoie_une_demande_d_envoi_de_son_LeafSet_par_D1</text>
+          <text>GX_recoie_une_demande_d_envoi_de_son_LeafSet_par_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1422,7 +1179,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1680.0" y="3143.0"/>
+          <position x="2977.0" y="4223.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1430,7 +1187,7 @@
       </transition>
       <transition id="t30">
         <name>
-          <text>D1_tombe_en_panne</text>
+          <text>G2_tombe_en_panne</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1443,7 +1200,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4103.0" y="1563.0"/>
+          <position x="882.0" y="773.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1464,7 +1221,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1330.0" y="3470.0"/>
+          <position x="2627.0" y="4550.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1472,7 +1229,7 @@
       </transition>
       <transition id="t32">
         <name>
-          <text>D1_detecte_la_panne_de_G1</text>
+          <text>G2_detecte_la_panne_de_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1485,7 +1242,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3693.0" y="1874.0"/>
+          <position x="472.0" y="1084.0"/>
           <fill color="#33CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1493,7 +1250,7 @@
       </transition>
       <transition id="t31">
         <name>
-          <text>D1_detecte_la_panne_de_M</text>
+          <text>G2_detecte_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1506,7 +1263,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4234.0" y="1862.0"/>
+          <position x="1013.0" y="1072.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1514,7 +1271,7 @@
       </transition>
       <transition id="t12">
         <name>
-          <text>Gx_envoie_son_LeafSet_a_D1</text>
+          <text>Gx_envoie_son_LeafSet_a_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1527,7 +1284,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1685.0" y="3483.0"/>
+          <position x="2982.0" y="4563.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1535,7 +1292,7 @@
       </transition>
       <transition id="t34">
         <name>
-          <text>D1_prend_en_charge_la_gestion_de_la_panne_de_M</text>
+          <text>G2_prend_en_charge_la_gestion_de_la_panne_de_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1548,7 +1305,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4432.5" y="1992.5"/>
+          <position x="1247.5" y="1192.5"/>
           <fill color="#33CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1569,7 +1326,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1540.0" y="3468.0"/>
+          <position x="2837.0" y="4548.0"/>
           <fill color="#00CCCC" gradient-color="#00CCCC"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1590,7 +1347,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2114.0" y="622.0"/>
+          <position x="2799.0" y="1722.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1598,7 +1355,7 @@
       </transition>
       <transition id="t36">
         <name>
-          <text>D1_selectionne_un_noeud_du_Leafset_de_Gx_pour_remplacer_G1</text>
+          <text>G2_selectionne_un_noeud_du_Leafset_de_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1611,7 +1368,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3684.0" y="2637.0"/>
+          <position x="463.0" y="1847.0"/>
           <fill color="#00CC33" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1632,7 +1389,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="712.0" y="2532.0"/>
+          <position x="598.0" y="4227.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1640,7 +1397,7 @@
       </transition>
       <transition id="t35">
         <name>
-          <text>D1_demande_son_LeafSet_a_Gx</text>
+          <text>G2_demande_son_LeafSet_a_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1653,7 +1410,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3676.0" y="2118.0"/>
+          <position x="455.0" y="1328.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1661,7 +1418,7 @@
       </transition>
       <transition id="t16">
         <name>
-          <text>M_detecte_la_panne_de_D1</text>
+          <text>M_detecte_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1674,7 +1431,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2413.0" y="842.0"/>
+          <position x="3097.0" y="1963.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1682,7 +1439,7 @@
       </transition>
       <transition id="t38">
         <name>
-          <text>D1_selectionne_un_noeud_du_Leafset_de_Dx_pour_remplacer_M</text>
+          <text>G2_selectionne_un_noeud_du_Leafset_de_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1695,7 +1452,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4247.0" y="2570.0"/>
+          <position x="1022.0" y="1853.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1716,7 +1473,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2028.0" y="857.0"/>
+          <position x="2717.0" y="1983.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1724,7 +1481,7 @@
       </transition>
       <transition id="t37">
         <name>
-          <text>D1_demande_son_LeafSet_a_Dx</text>
+          <text>G2_demande_son_LeafSet_a_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1737,7 +1494,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4233.0" y="2104.0"/>
+          <position x="1012.0" y="1314.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1745,7 +1502,7 @@
       </transition>
       <transition id="t18">
         <name>
-          <text>M_prend_en_charge_la_gestion_de_la_panne_de_D1</text>
+          <text>M_prend_en_charge_la_gestion_de_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1758,7 +1515,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2678.0" y="1003.0"/>
+          <position x="3362.0" y="2113.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1779,7 +1536,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1793.0" y="1028.0"/>
+          <position x="2488.0" y="2153.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1787,7 +1544,7 @@
       </transition>
       <transition id="t39">
         <name>
-          <text>D1_prend_en_charge_la_gestion_de_la_panne_de_G1</text>
+          <text>G2_prend_en_charge_la_gestion_de_la_panne_de_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1800,7 +1557,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3453.0" y="2008.0"/>
+          <position x="242.0" y="1237.0"/>
           <fill color="#33CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1808,7 +1565,7 @@
       </transition>
       <transition id="t19">
         <name>
-          <text>M_demande_son_LeafSet_a_Gx</text>
+          <text>M_demande_son_LeafSet_a_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1821,7 +1578,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2040.0" y="1187.0"/>
+          <position x="2725.0" y="2287.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1842,7 +1599,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2057.0" y="1673.0"/>
+          <position x="2737.0" y="2792.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1850,7 +1607,7 @@
       </transition>
       <transition id="t43">
         <name>
-          <text>G1_recoit_le_leafset_de_Dx</text>
+          <text>G1_recoit_le_leafset_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1863,7 +1620,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1138.0" y="2280.0"/>
+          <position x="1024.0" y="3975.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1871,7 +1628,7 @@
       </transition>
       <transition id="t20">
         <name>
-          <text>M_demande_son_LeafSet_a_Dx</text>
+          <text>M_demande_son_LeafSet_a_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1884,7 +1641,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2416.0" y="1125.0"/>
+          <position x="3101.0" y="2225.0"/>
           <fill color="#FF0033" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1892,7 +1649,7 @@
       </transition>
       <transition id="t42">
         <name>
-          <text>G1_recoit_le_LeafSet_de_Gx</text>
+          <text>G1_recoit_le_LeafSet_de_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1905,36 +1662,15 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="729.0" y="2285.0"/>
+          <position x="615.0" y="3980.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <silent>false</silent>
       </transition>
-      <transition id="t23">
-        <name>
-          <text>Dx_recoie_une_demande_d_envoi_de_son_LeafSet_par_M</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2891.0" y="3174.0"/>
-          <fill color="#009999" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
-      </transition>
       <transition id="t45">
         <name>
-          <text>M_recoit_le_LeafSet_de_Dx</text>
+          <text>M_recoit_le_LeafSet_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1947,7 +1683,28 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2416.0" y="1373.0"/>
+          <position x="3101.0" y="2473.0"/>
+          <fill color="#FF0000" gradient-color="none"/>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <silent>false</silent>
+      </transition>
+      <transition id="t44">
+        <name>
+          <text>M_recoit_le_LeafSet_de_Gx_pour_remplacer_G1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
+            <visible>true</visible>
+          </toolspecific>
+        </name>
+        <graphics>
+          <dimension x="45.0" y="45.0"/>
+          <position x="2730.0" y="2525.0"/>
           <fill color="#FF0000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -1955,7 +1712,7 @@
       </transition>
       <transition id="t22">
         <name>
-          <text>Dx_recoie_une_demande_d_envoi_de_son_LeafSet_par_G1</text>
+          <text>G1_detetcte_la_panne_de_M_par_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -1968,57 +1725,15 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2699.0" y="3109.0"/>
-          <fill color="#009999" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
-      </transition>
-      <transition id="t44">
-        <name>
-          <text>M_recoit_le_LeafSet_de_Gx</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2045.0" y="1425.0"/>
-          <fill color="#FF0000" gradient-color="none"/>
+          <position x="825.0" y="3565.0"/>
+          <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <silent>false</silent>
-      </transition>
-      <transition id="t25">
-        <name>
-          <text>Dx_envoie_son_LeafSet_a_G1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2691.0" y="3436.0"/>
-          <fill color="#009999" gradient-color="#00CCCC"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
       </transition>
       <transition id="t47">
         <name>
-          <text>D1_recoit_le_LeafSet_de_Dx</text>
+          <text>G2_recoit_le_LeafSet_de_Gx_pour_remplacer_M</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2031,36 +1746,15 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="4239.0" y="2338.0"/>
+          <position x="1018.0" y="1548.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <silent>false</silent>
-      </transition>
-      <transition id="t24">
-        <name>
-          <text>Dx_recoie_une_demande_d_envoi_de_son_LeafSet_par_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3032.0" y="3074.0"/>
-          <fill color="#009999" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
       </transition>
       <transition id="t46">
         <name>
-          <text>D1_recoit_le_LeafSet_de_Gx</text>
+          <text>G2_recoit_le_LeafSet_de_Gx_pour_remplacer_G1</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2073,74 +1767,11 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="3673.0" y="2355.0"/>
+          <position x="452.0" y="1565.0"/>
           <fill color="#00CC00" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <silent>false</silent>
-      </transition>
-      <transition id="t27">
-        <name>
-          <text>Dx_envoie_son_LeafSet_a_D1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="3046.0" y="3449.0"/>
-          <fill color="#009999" gradient-color="#00CCCC"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
-      </transition>
-      <transition id="t49">
-        <name>
-          <text>Dx_entre_dans_le_LeafSet</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2925.0" y="2885.0"/>
-          <fill color="#009999" gradient-color="none"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>false</silent>
-      </transition>
-      <transition id="t26">
-        <name>
-          <text>Dx_envoie_son_LeafSet_a_M</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-          <toolspecific tool="de.uni-freiburg.telematik.editor" version="1.0">
-            <visible>true</visible>
-          </toolspecific>
-        </name>
-        <graphics>
-          <dimension x="45.0" y="45.0"/>
-          <position x="2901.0" y="3434.0"/>
-          <fill color="#009999" gradient-color="#00CCCC"/>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <silent>true</silent>
       </transition>
       <transition id="t48">
         <name>
@@ -2157,7 +1788,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1455.0" y="2890.0"/>
+          <position x="2752.0" y="3970.0"/>
           <fill color="#00CCCC" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2165,7 +1796,7 @@
       </transition>
       <transition id="t29">
         <name>
-          <text>M_selectionne_un_noeud_du_Leafset_de_Dx_pour_remplacer_D1</text>
+          <text>M_selectionne_un_noeud_du_Leafset_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2178,7 +1809,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="2433.0" y="1728.0"/>
+          <position x="3117.0" y="2797.0"/>
           <fill color="#FF0000" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2186,7 +1817,7 @@
       </transition>
       <transition id="t28">
         <name>
-          <text>G1_selectionne_un_noeud_du_Leafset_de_Dx_pour_remplacer_D1</text>
+          <text>G1_selectionne_un_noeud_du_Leafset_de_Gx_pour_remplacer_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2199,7 +1830,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1133.0" y="2522.0"/>
+          <position x="1019.0" y="4217.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2220,7 +1851,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="697.0" y="1458.0"/>
+          <position x="583.0" y="3153.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2241,7 +1872,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="708.0" y="1751.0"/>
+          <position x="567.0" y="3423.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2249,7 +1880,7 @@
       </transition>
       <transition id="t2">
         <name>
-          <text>G1_detecte_la_panne_de_D1</text>
+          <text>G1_detecte_la_panne_de_G2</text>
           <graphics>
             <offset x="1.0" y="30.0"/>
             <fill color="transparent" gradient-color="none"/>
@@ -2262,7 +1893,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="1104.0" y="1717.0"/>
+          <position x="994.0" y="3458.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2283,7 +1914,7 @@
         </name>
         <graphics>
           <dimension x="45.0" y="45.0"/>
-          <position x="511.0" y="1922.0"/>
+          <position x="377.0" y="3632.0"/>
           <fill color="#B6CAE4" gradient-color="none"/>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2303,7 +1934,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p61t47" source="p61" target="t47">
+      <arc id="arcPT_p55t45" source="p55" target="t45">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2331,35 +1962,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p53t22" source="p53" target="t22">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t45p29" source="t45" target="p29">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p23t49" source="p23" target="t49">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2443,35 +2046,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p47t14" source="p47" target="t14">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t22p23" source="t22" target="p23">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="2805.0" y="3005.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p21t21" source="p21" target="t21">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -2514,6 +2088,34 @@
           </graphics>
         </inscription>
       </arc>
+      <arc id="arcTP_t1p24" source="t1" target="p24">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcTP_t31p25" source="t31" target="p25">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
       <arc id="arcTP_t47p40" source="t47" target="p40">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -2529,20 +2131,6 @@
         </inscription>
       </arc>
       <arc id="arcTP_t7p27" source="t7" target="p27">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t38p49" source="t38" target="p49">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2626,24 +2214,10 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p52t43" source="p52" target="t43">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t2p0" source="t2" target="p0">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="929.0" y="1690.0"/>
+          <position x="815.0" y="3385.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -2697,35 +2271,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p26t27" source="p26" target="t27">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p20t44" source="p20" target="t44">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p49t49" source="p49" target="t49">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -2756,7 +2302,22 @@
       <arc id="arcTP_t6p8" source="t6" target="p8">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="1380.0" y="3050.0"/>
+          <position x="2677.0" y="4130.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcTP_t29p62" source="t29" target="p62">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+          <position x="2625.0" y="3282.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -2825,20 +2386,6 @@
         </inscription>
       </arc>
       <arc id="arcPT_p22t17" source="p22" target="t17">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p57t45" source="p57" target="t45">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3020,20 +2567,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t3p48" source="t3" target="p48">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p32t31" source="p32" target="t31">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3051,7 +2584,21 @@
       <arc id="arcTP_t31p32" source="t31" target="p32">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="4027.0" y="1719.0"/>
+          <position x="806.0" y="929.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcTP_t38p62" source="t38" target="p62">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3078,49 +2625,6 @@
         </inscription>
       </arc>
       <arc id="arcTP_t39p33" source="t39" target="p33">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t23p23" source="t23" target="p23">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="2925.0" y="3070.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p24t25" source="p24" target="t25">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t23p25" source="t23" target="p25">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3163,20 +2667,6 @@
         </inscription>
       </arc>
       <arc id="arcTP_t31p34" source="t31" target="p34">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t27p61" source="t27" target="p61">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3249,7 +2739,7 @@
       <arc id="arcTP_t15p14" source="t15" target="p14">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="1961.0" y="714.0"/>
+          <position x="2755.0" y="1855.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3292,7 +2782,7 @@
       <arc id="arcTP_t32p32" source="t32" target="p32">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="3872.0" y="1779.0"/>
+          <position x="651.0" y="989.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3319,6 +2809,20 @@
         </inscription>
       </arc>
       <arc id="arcPT_p31t30" source="p31" target="t30">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcPT_p59t47" source="p59" target="t47">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3388,34 +2892,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p25t26" source="p25" target="t26">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t28p49" source="t28" target="p49">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p19t20" source="p19" target="t20">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3461,7 +2937,21 @@
       <arc id="arcPT_p5t5" source="p5" target="t5">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="2230.0" y="1840.0"/>
+          <position x="3095.0" y="3005.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcPT_p25t22" source="p25" target="t22">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3488,20 +2978,6 @@
         </inscription>
       </arc>
       <arc id="arcPT_p27t43" source="p27" target="t43">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t25p52" source="t25" target="p52">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3613,34 +3089,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p60t24" source="p60" target="t24">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t20p56" source="t20" target="p56">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t36p62" source="t36" target="p62">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3670,6 +3118,20 @@
         </inscription>
       </arc>
       <arc id="arcTP_t48p46" source="t48" target="p46">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcTP_t20p54" source="t20" target="p54">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3714,7 +3176,7 @@
       <arc id="arcTP_t8p8" source="t8" target="p8">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="1520.0" y="3100.0"/>
+          <position x="2817.0" y="4180.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -3782,20 +3244,6 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t37p60" source="t37" target="p60">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p8t6" source="p8" target="t6">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -3838,50 +3286,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t24p23" source="t24" target="p23">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="2990.0" y="3015.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcPT_p1t32" source="p1" target="t32">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t24p26" source="t24" target="p26">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcTP_t49p45" source="t49" target="p45">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -3898,49 +3303,7 @@
       <arc id="arcPT_p4t3" source="p4" target="t3">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="1580.0" y="1000.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p23t24" source="p23" target="t24">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p23t23" source="p23" target="t23">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
-      <arc id="arcPT_p23t22" source="p23" target="t22">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
+          <position x="2265.0" y="2100.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -4036,6 +3399,20 @@
           </graphics>
         </inscription>
       </arc>
+      <arc id="arcTP_t28p62" source="t28" target="p62">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
       <arc id="arcPT_p0t2" source="p0" target="t2">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
@@ -4106,24 +3483,10 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t34p63" source="t34" target="p63">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t16p14" source="t16" target="p14">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="2315.0" y="650.0"/>
+          <position x="2980.0" y="1875.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -4135,7 +3498,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcPT_p56t23" source="p56" target="t23">
+      <arc id="arcTP_t37p58" source="t37" target="p58">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -4152,7 +3515,7 @@
       <arc id="arcTP_t1p0" source="t1" target="p0">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="729.0" y="1680.0"/>
+          <position x="675.0" y="3365.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -4248,7 +3611,21 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t29p49" source="t29" target="p49">
+      <arc id="arcPT_p23t14" source="p23" target="t14">
+        <graphics>
+          <line color="#000000" shape="line" style="solid" width="1.0"/>
+        </graphics>
+        <inscription>
+          <text>1</text>
+          <graphics>
+            <offset x="1.0" y="30.0"/>
+            <fill color="transparent" gradient-color="none"/>
+            <line color="transparent" shape="line" style="solid" width="1.0"/>
+            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
+          </graphics>
+        </inscription>
+      </arc>
+      <arc id="arcPT_p50t43" source="p50" target="t43">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -4276,7 +3653,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t26p57" source="t26" target="p57">
+      <arc id="arcTP_t5p7" source="t5" target="p7">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -4290,7 +3667,7 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t5p7" source="t5" target="p7">
+      <arc id="arcTP_t7p51" source="t7" target="p51">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
         </graphics>
@@ -4346,24 +3723,10 @@
           </graphics>
         </inscription>
       </arc>
-      <arc id="arcTP_t7p53" source="t7" target="p53">
-        <graphics>
-          <line color="#000000" shape="line" style="solid" width="1.0"/>
-        </graphics>
-        <inscription>
-          <text>1</text>
-          <graphics>
-            <offset x="1.0" y="30.0"/>
-            <fill color="transparent" gradient-color="none"/>
-            <line color="transparent" shape="line" style="solid" width="1.0"/>
-            <font align="center" family="Dialog" rotation="0.0" size="11" style="normal" weight="normal"/>
-          </graphics>
-        </inscription>
-      </arc>
       <arc id="arcTP_t0p22" source="t0" target="p22">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="830.0" y="1460.0"/>
+          <position x="716.0" y="3155.0"/>
         </graphics>
         <inscription>
           <text>1</text>
@@ -4392,7 +3755,7 @@
       <arc id="arcTP_t9p8" source="t9" target="p8">
         <graphics>
           <line color="#000000" shape="line" style="solid" width="1.0"/>
-          <position x="1580.0" y="3060.0"/>
+          <position x="2877.0" y="4140.0"/>
         </graphics>
         <inscription>
           <text>1</text>
