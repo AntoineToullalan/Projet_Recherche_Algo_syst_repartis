@@ -23,5 +23,5 @@ test:
 	./lib/org.eclipse.emf.common_2.17.0.v20190920-0401.jar:\
 	./lib/org.eclipse.emf.ecore_2.20.0.v20190920-0401.jar:\
 	./lib/org.slf4j.api_1.7.30.v20200204-2150.jar:\
-	./lib/slf4j-jdk14-2.0.0-alpha1.jar" clientserver.Main 2 3;
+	./lib/slf4j-jdk14-2.0.0-alpha1.jar" reseausimple.Main 2 3;
 

@@ -1,4 +1,4 @@
-package clientserver;
+package reseausimple;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PageHLAPI;
@@ -44,8 +44,8 @@ public class Init {
 				}
 			}
 			PnmlExport pex = new PnmlExport();
-			pex.exportObject(doc,"testmodel/ReseauSimple"+nb+"_"+length+".pnml");
-			System.out.println("File ReseauSimple"+nb+"_"+length+".pnml exported to testmodel directory.");
+			pex.exportObject(doc,"testmodel/ReseauSimple_"+nb+"_"+length+".pnml");
+			System.out.println("File ReseauSimple_"+nb+"_"+length+".pnml exported to testmodel directory.");
 			ModelRepository.getInstance().destroyCurrentWorkspace();
 		} catch (InvalidIDException e) {
 			System.out.println("InvalidIDException caught by while running generator");

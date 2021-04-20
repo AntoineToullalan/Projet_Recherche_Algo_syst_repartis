@@ -1,5 +1,4 @@
-# LU3IN013_Client_Server
-Client-Server communication system Petri net models generator, with scalability by the number of clients and servers
+Reseau_simple
 
 Depencencies: PNML Framework, EMF Ecore, EMF Common, OCL Ecore, OCL Common
 
@@ -7,9 +6,9 @@ Usage:
 
 Pour OS
 
-./compile_os
+make all
 
-./cliser_os nb_clients nb_serveurs
+bash cliser_os.sh nb length
 
 OU
 

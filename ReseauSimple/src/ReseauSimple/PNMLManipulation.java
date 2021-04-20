@@ -1,4 +1,4 @@
-package clientserver;
+package reseausimple;
 import fr.lip6.move.pnml.ptnet.hlapi.PageHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PlaceHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PositionHLAPI;
@@ -39,6 +39,7 @@ public class PNMLManipulation {
 			OffsetHLAPI omk = new OffsetHLAPI(-5,-10,new AnnotationGraphicsHLAPI(place.getInitialMarkingHLAPI()));
 			LineHLAPI l1 = new LineHLAPI(pg1);
 			l1.setColorHLAPI(color);
+			//pg1.setFillHLAPI(new FillHLAPI(new Fill(color)));
 			
 		}
 		catch(InvalidIDException e) {
@@ -57,6 +58,7 @@ public class PNMLManipulation {
 			OffsetHLAPI o3 = new OffsetHLAPI(-30,-30,new AnnotationGraphicsHLAPI(new NameHLAPI(transition.getId(),transition)));
 			LineHLAPI l3 = new LineHLAPI(pg3);
 			l3.setColorHLAPI(color);
+			//pg3.setFillHLAPI(new FillHLAPI(new Fill(color)));
 			
 		}
 		catch(InvalidIDException e) {

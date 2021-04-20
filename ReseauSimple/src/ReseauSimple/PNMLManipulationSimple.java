@@ -1,4 +1,4 @@
-package clientserver;
+package reseausimple;
 import fr.lip6.move.pnml.ptnet.hlapi.PageHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PlaceHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PositionHLAPI;
