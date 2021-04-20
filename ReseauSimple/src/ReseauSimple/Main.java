@@ -3,18 +3,18 @@ public class Main {
 
 	public static void main (String[] args) {
 		
-		String NamePlace;
-		String NameTrans;
+		int nb;
+		int length;
 		
 		try {
-			NamePlace = args[0];
-			NameTrans  = args[1];
+			nb = Integer.parseInt(args[0]);
+			length  = Integer.parseInt(args[1]);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Usage: ./cliser_os NamePlace NameTrans");			
+			System.out.println("Usage: ./cliser_os nb length");			
 			return;
 		}
 		
-		System.out.println("Model of one Arc ");
-		Init gen = new Init(NamePlace, NameTrans , 750, 500);
+		System.out.println("Pretty Simple Model ");
+		Init gen = new Init(nb, length , 750, 500);
 	}
 }

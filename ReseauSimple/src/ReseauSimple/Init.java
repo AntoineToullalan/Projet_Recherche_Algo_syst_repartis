@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class Init {
 
-	public Init(String NamePlace, String NameTrans, int dim1, int dim2) {	
+	public Init(int nb, int length, int dim1, int dim2) {	
 
 		try {
 			ModelRepository.getInstance().createDocumentWorkspace("generator");
@@ -23,10 +23,19 @@ public class Init {
 			PetriNetHLAPI net = new PetriNetHLAPI("gen", PNTypeHLAPI.PTNET, new NameHLAPI("gen"), doc);
 			PageHLAPI page = new PageHLAPI("toppage", new NameHLAPI("gen"), null, net);
 			
-			Place place = new Place(page,NamePlace,100,100,CSS2Color.ORANGE,true);
-			Transition transition = new Transition(page,NameTrans,400,300,CSS2Color.RED);
-			Arc arc = new Arc(page,place,transition);
-			
+			PNMLManipulationSimple manip;
+			for(int i=0;i<nb;i++) {
+				manip = new PNMLManipulationSimple(page,40+i*100,40);
+				for(int j=0;j<length;j++) {
+					manip.placeSimple("place"+i+"_"+j);
+					if(j!=0) {
+						manip.arc(false);
+					}
+					manip.transitionSimple("transition"+i+"_"+j);
+					manip.arc(true);
+				}
+			}
+
 			//System.out.println("Everything generated");
 			File dir = new File (System.getProperty("user.dir")+"/testmodel");
 			if (!dir.exists()) {
@@ -35,8 +44,8 @@ public class Init {
 				}
 			}
 			PnmlExport pex = new PnmlExport();
-			pex.exportObject(doc,"testmodel/ReseauSimple"+NamePlace+"_"+NameTrans+".pnml");
-			System.out.println("File ReseauSimple"+NamePlace+"_"+NameTrans+".pnml exported to testmodel directory.");
+			pex.exportObject(doc,"testmodel/ReseauSimple"+nb+"_"+length+".pnml");
+			System.out.println("File ReseauSimple"+nb+"_"+length+".pnml exported to testmodel directory.");
 			ModelRepository.getInstance().destroyCurrentWorkspace();
 		} catch (InvalidIDException e) {
 			System.out.println("InvalidIDException caught by while running generator");
