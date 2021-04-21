@@ -23,9 +23,13 @@ import java.io.File;
 import java.io.IOException;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 
-//PNMLManipulation est une classe utilisant la bibliothèque pnmlframework qui permet
-//de créer des reseaux de Petri de manière plus intuitive qu'avec les fonctions 
-//de pnmlframework.
+// =========================================================================
+//PNMLManipulation est une classe utilisant la bibliothèque pnmlframework 
+// qui permet de créer des reseaux de Petri de manière plus intuitive qu'avec
+// les fonctions de pnmlframework.
+// =========================================================================
+
+
 public class PNMLManipulation {
 	private PageHLAPI page;
 	private PlaceHLAPI place;
@@ -35,9 +39,11 @@ public class PNMLManipulation {
 	private int x,y,nb,length;
 	private PetriNetDocHLAPI doc;
 
+	// =======================================================================
+	//le constructeur crée la page sur laquelle le réseau sera construit
+	// x et y indique ou sera le coin supérieur gauche du réseau
+
 	public PNMLManipulation(int x,int y) {
-		//le constructeur crée la page sur laquelle le réseau sera construit
-		// x et y indique ou sera le coin supérieur gauche du réseau
 		try {
 			ModelRepository.getInstance().createDocumentWorkspace("generator");
 			doc = new PetriNetDocHLAPI();
