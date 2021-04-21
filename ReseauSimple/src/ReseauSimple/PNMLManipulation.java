@@ -13,22 +13,110 @@ import fr.lip6.move.pnml.ptnet.hlapi.NameHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.NodeGraphicsHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.OffsetHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PTMarkingHLAPI;
+import fr.lip6.move.pnml.ptnet.hlapi.PNTypeHLAPI;
+import fr.lip6.move.pnml.ptnet.hlapi.PetriNetHLAPI;
+import fr.lip6.move.pnml.framework.general.PnmlExport;
 import fr.lip6.move.pnml.framework.utils.exception.InvalidIDException;
 import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
+import fr.lip6.move.pnml.framework.utils.ModelRepository;
+import java.io.File;
+import java.io.IOException;
+import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 
+//PNMLManipulation est une classe utilisant la bibliothèque pnmlframework qui permet
+//de créer des reseaux de Petri de manière plus intuitive qu'avec les fonctions 
+//de pnmlframework.
 public class PNMLManipulation {
-	private PageHLAPI syspage;
+	private PageHLAPI page;
 	private PlaceHLAPI place;
 	private TransitionHLAPI transition;
 	private ArcHLAPI arc;
 	public static int cpt_arc= 0;
+	private int x,y,nb,length;
+	private PetriNetDocHLAPI doc;
+
+	public PNMLManipulation(int x,int y) {
+		//le constructeur crée la page sur laquelle le réseau sera construit
+		// x et y indique ou sera le coin supérieur gauche du réseau
+		try {
+			ModelRepository.getInstance().createDocumentWorkspace("generator");
+			doc = new PetriNetDocHLAPI();
+			PetriNetHLAPI net = new PetriNetHLAPI("gen", PNTypeHLAPI.PTNET, new NameHLAPI("gen"), doc);
+			page = new PageHLAPI("toppage", new NameHLAPI("gen"), null, net);
+			this.x=x;
+			this.y=y;
+		}
+		
+		//catch (InvalidIDException e) {
+			//System.out.println("InvalidIDException caught by while running generator");
+			//e.printStackTrace();}
+		catch (VoidRepositoryException e) {
+			System.out.println("VoidRepositoryException caught by while running generator");
+			e.printStackTrace();	
+		} 
+		//catch (IOException e) {
+			//System.out.println(e.getMessage());
+			//e.printStackTrace();}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	public PNMLManipulation() {
+		this(40,40);
+	}
 	
-	public PNMLManipulation(PageHLAPI syspage) {
-		this.syspage=syspage;
+	public void init(int nb, int length) {
+		//init permet de faire un réseau composé de nb suite de couples (place,transition) de longueur length 
+		this.nb=nb;
+		this.length=length;
+		int y_init=y;
+		for(int i=0;i<nb;i++) {
+			y=y_init;
+			x+=50;
+			for(int j=0;j<length;j++) {
+				place("place"+i+"_"+j);
+				if(j!=0) {
+					arc(false);
+				}
+				transition("transition"+i+"_"+j);
+				arc(true);
+			}
+		}
+	}
+	public void generate_file() {	
+		//generate_file (comme son nom l'indique) permet de créer le fichier .pnml avec le réseau construit
+		try {
+			//System.out.println("Everything generated");
+			File dir = new File (System.getProperty("user.dir")+"/testmodel");
+			if (!dir.exists()) {
+				if (!dir.mkdir()) {
+					throw new IOException("Failed to create directory " + dir.getAbsolutePath());
+				}
+			}
+			PnmlExport pex = new PnmlExport();
+			pex.exportObject(doc,"testmodel/reseau"+nb+"_"+length+".pnml");
+			System.out.println("File reseau"+nb+"_"+length+".pnml exported to testmodel directory.");
+			ModelRepository.getInstance().destroyCurrentWorkspace();
+		} 
+		//catch (InvalidIDException e) {
+			//System.out.println("InvalidIDException caught by while running generator");
+			//e.printStackTrace();}
+		catch (VoidRepositoryException e) {
+			System.out.println("VoidRepositoryException caught by while running generator");
+			e.printStackTrace();	
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	public void place(String name,int x,int y,CSS2Color color, boolean jeton) {
+		// place créer une place dans la page de nom "name", couleur "color" et de coordonnées
+		//(x,y), l'argument jeton indique si la place contient un jeton ou non.
 		try {
-			place = new PlaceHLAPI(name,syspage);
+			place = new PlaceHLAPI(name,page);
 			if(jeton) {
 				place.setInitialMarkingHLAPI(new PTMarkingHLAPI(1L));
 			}	
@@ -39,7 +127,6 @@ public class PNMLManipulation {
 			OffsetHLAPI omk = new OffsetHLAPI(-5,-10,new AnnotationGraphicsHLAPI(place.getInitialMarkingHLAPI()));
 			LineHLAPI l1 = new LineHLAPI(pg1);
 			l1.setColorHLAPI(color);
-			//pg1.setFillHLAPI(new FillHLAPI(new Fill(color)));
 			
 		}
 		catch(InvalidIDException e) {
@@ -50,15 +137,16 @@ public class PNMLManipulation {
 		}
 	}
 	public void transition(String name,int x,int y,CSS2Color color) {
+		// place créer une place dans la page de nom "name", couleur "color" et de coordonnées
+		//(x,y).
 		try {
-			transition = new TransitionHLAPI(name,syspage);
+			transition = new TransitionHLAPI(name,page);
 			NodeGraphicsHLAPI pg3 = new NodeGraphicsHLAPI(transition);
 			PositionHLAPI pos3 = new PositionHLAPI(x,y,pg3);
 			DimensionHLAPI dim3 = new DimensionHLAPI(10,25,pg3);
 			OffsetHLAPI o3 = new OffsetHLAPI(-30,-30,new AnnotationGraphicsHLAPI(new NameHLAPI(transition.getId(),transition)));
 			LineHLAPI l3 = new LineHLAPI(pg3);
 			l3.setColorHLAPI(color);
-			//pg3.setFillHLAPI(new FillHLAPI(new Fill(color)));
 			
 		}
 		catch(InvalidIDException e) {
@@ -68,14 +156,15 @@ public class PNMLManipulation {
 			e.printStackTrace();	
 		}
 	}
-	
-	public void arc(boolean placeVersTransition) {
+	public void arc(boolean placeVersTransition,PlaceHLAPI p,TransitionHLAPI t) {
+		//arc crée un arc entre la place p et la transition t, la direction de l'arc est indiqué
+		// par placeVersTransition, qui vaut true si l'arc va de la place vers la transition
 		try {
 			if(placeVersTransition) {
-				arc = new ArcHLAPI("arc"+cpt_arc,place,transition,syspage);
+				arc = new ArcHLAPI("arc"+cpt_arc,p,t,page);
 			}
 			else {
-				arc = new ArcHLAPI("arc"+cpt_arc,transition,place,syspage);
+				arc = new ArcHLAPI("arc"+cpt_arc,t,p,page);
 			}
 			cpt_arc+=1;
 			LineHLAPI al1 = new LineHLAPI(new ArcGraphicsHLAPI(arc));
@@ -87,7 +176,17 @@ public class PNMLManipulation {
 			e.printStackTrace();	
 		}
 	}
-	
+	public void place(String name) {
+		place(name,x,y,CSS2Color.BLACK, false);
+		y+=100;
+	}
+	public void transition(String name) {
+		transition(name,x,y,CSS2Color.BLACK);
+		y+=100;
+	}
+	public void arc(boolean placeVersTransition) {
+		arc(placeVersTransition,place,transition);
+	}
 	public TransitionHLAPI getTransition() {
 		return transition;
 	}
