@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-12">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/fr.lip6.pnml.framework.3rdpartimports_2.2.14.jar"/>
+	<classpathentry kind="lib" path="lib/fr.lip6.pnml.framework.ptnet_2.2.14.jar"/>
+	<classpathentry kind="lib" path="lib/fr.lip6.pnml.framework.utils_2.2.14.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore_2.20.0.v20190920-0401.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.emf.common_2.17.0.v20190920-0401.jar"/>
+	<classpathentry kind="lib" path="lib/org.slf4j.api_1.7.30.v20200204-2150.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
