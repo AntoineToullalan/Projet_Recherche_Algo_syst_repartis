@@ -59,11 +59,13 @@ public class AutomateNode {
 		manip.place(name+"Failure",x+master*300,x-180,CSS2Color.GRAY,false);
 		manip.arc(false);
 		int y_init=y+100;
+		int j=0;
 		for(int i=0;i<size;i++) {
 			if(i==num) {
 				i+=1;
 			}
-			buildBranch(x+i*300,y_init,i);
+			buildBranch(x+j*300,y_init,i);
+			j+=1;
 			
 		}
 	}
