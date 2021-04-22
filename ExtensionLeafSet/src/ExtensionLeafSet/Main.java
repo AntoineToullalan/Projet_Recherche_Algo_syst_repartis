@@ -27,26 +27,19 @@ import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 public class Main {
 	public static void main (String[] args) {
 		
-		int num;
 		int size;
-		int x;
-		int y;
-		
 		try {
-			//on récupère les arguments : num,size,x,y
-			num = Integer.parseInt(args[0]);
-			size  = Integer.parseInt(args[1]);
-			x = Integer.parseInt(args[2]);
-			y  = Integer.parseInt(args[3]);
+			//on récupère l'argument : size
+			size  = Integer.parseInt(args[0]);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Usage: ./cliser_os num size x y");			
+			System.out.println("Usage: ./cliser_os size ");			
 			return;
 		}
 		
 		System.out.println("Extension of a Leafset ");
 		
 		//on créer une instance de PNMLManipulation 
-		PNMLManipulation manip = new PNMLManipulation(x,y);
+		PNMLManipulation manip = new PNMLManipulation(400,400);
 		//on crée un réseau de petri
 		LeafSet leafset = new LeafSet(size,manip);
 		leafset.buildAllLeafSet();
