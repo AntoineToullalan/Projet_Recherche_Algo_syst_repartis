@@ -48,9 +48,9 @@ public class Main {
 		//on créer une instance de PNMLManipulation 
 		PNMLManipulation manip = new PNMLManipulation(x,y);
 		//on crée un réseau de petri
-		AutomateNode automate = new AutomateNode(x,y,num,size,manip);
-		automate.buildAutomate();
+		LeafSet leafset = new LeafSet(size,manip);
+		leafset.buildAllLeafSet();
 		//on génère le fichier pnml contenant le réseau construit
-		manip.generate_file("ExtensioLeafSet_Size"+size);
+		manip.generate_file("ExtensionLeafSet_Size"+size);
 	}
 }

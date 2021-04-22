@@ -24,28 +24,80 @@ import java.io.IOException;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 import java.util.ArrayList;
 
+//=========================================================================
+//ExtremityLeafSet construit les automates de Gx et Dx
+//=========================================================================
 public class ExtremityLeafSet {
 	private int x,y,size;
 	private PNMLManipulation manip;
+	private PlaceHLAPI principalNode;
 	public ExtremityLeafSet(int x,int y,int size,PNMLManipulation manip) {
 		this.x=x;
 		this.y=y;
 		this.size=size;
 		this.manip=manip;
 	}
+	
+	public void buildExtremity() {
+		int y_init=y;
+		LDx(true);
+		x+=size*300;
+		y=y_init;
+		LDx(false);
+	}
+	
+	//=========================================================================
+	//LDx construit l'automate de Gx si LxOrRx vaut true, Dx sinon
+	//=========================================================================
 	public void LDx(boolean LxOrRx) {
 		String name;
+		int xplace=0;
 		if(LxOrRx) {
-			x+=(size/2-1)*300;
-			y+=1000;
+			xplace=x+(size/2-1)*300;
 			name="Lx";
 		}
 		else {
-			x+=(size/2+1)*300;
-			y+=1000;
+			xplace=x+(size/2+1)*300;
 			name="Rx";
 		}
-		manip.place(name+"IsActiveAndNotInTheLeafSet",x,y,CSS2Color.BLACK,true);
+		manip.place(name+"IsActiveAndNotInTheLeafSet",xplace,y,CSS2Color.BLACK,true);
+		principalNode=manip.getPlace();
+		
+		manip.transition(name+"EntersTheLeafSet",xplace,y-100,CSS2Color.BLACK);
+		manip.arc(true);
+		
+		manip.place(name+"IsActiveInTheLeafSet",xplace,y-200,CSS2Color.BLACK,false);
+		manip.arc(false);
+		y+=100;
+		for(int i=0;i<size;i++) {
+			buildBranchLDx(LxOrRx,x+i*300,y+100,i);
+		}
+		
+	}
+	
+	//=========================================================================
+	//buildBranchLDx construit 1 branche dans l'automate de Gx ou Dx
+	//=========================================================================
+	public void buildBranchLDx(boolean LxOrRx,int xBranch,int yBranch,int iBranch) {
+		String name;
+		String nameBranch="Node"+iBranch;
+		if(LxOrRx) {
+			name="Lx";
+		}
+		else {
+			name="Rx";
+		}
+		manip.transition(name+"ReceiveARequestToSendItsLeafSetTo"+nameBranch,xBranch,yBranch,CSS2Color.BLUE);
+		yBranch+=100;
+		manip.arc(false,principalNode,manip.getTransition());
+		manip.arc(true,principalNode,manip.getTransition());
+		
+		manip.place(name+"HasReceivedTheRequestOf"+nameBranch,xBranch,yBranch,CSS2Color.BLUE,false);
+		yBranch+=100;
+		manip.arc(false);
+		
+		manip.transition(name+"SendsItsLeafSetTo"+nameBranch,xBranch,yBranch,CSS2Color.BLUE);
+		manip.arc(true);
 		
 	}
 

@@ -73,17 +73,15 @@ public class PNMLManipulation {
 	}
 	
 	// =========================================================================
-	//init permet de faire un réseau composé de nb suite de couples (place,transition) de longueur length 
+	//exemple permet de faire un réseau composé de n suite de couples (place,transition) de longueur m 
 	// =========================================================================
-	public void init(int num,int size) {
+	public void exemple(int n,int m) {
 		
-		this.num=num;
-		this.size=size;
 		int y_init=y;
-		for(int i=0;i<num;i++) {
+		for(int i=0;i<n;i++) {
 			y=y_init;
 			x+=50;
-			for(int j=0;j<size;j++) {
+			for(int j=0;j<m;j++) {
 				place("place"+i+"_"+j);
 				if(j!=0) {
 					arc(false);

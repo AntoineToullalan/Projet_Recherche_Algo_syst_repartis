@@ -23,15 +23,26 @@ import java.io.File;
 import java.io.IOException;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
+//=========================================================================
+//AutomateNode est une classe permettant de créer les automates pour chaque 
+//noeud dans un LeafSet.
+//=========================================================================
 public class AutomateNode {
 	private int num,size,x,y,master;
 	private String name;
 	private PNMLManipulation manip;
-	private PlaceHLAPI PrincipalNode;
-	private TransitionHLAPI brokDown;
-	private ArrayList<TransitionHLAPI> transition1,transition2,transition3Left,transition3Right,transition4Left,transition4Right,transition5Left,transition5Right;
-
+	private PlaceHLAPI PrincipalNode,IsMaster;
+	private TransitionHLAPI brokDown,newMaster,detectNewMaster;
+	private Hashtable<String,TransitionHLAPI> transition1,transition2;
+	private ArrayList<TransitionHLAPI> transition3Left,transition3Right,transition4Left,transition4Right,transition5Left,transition5Right;
+	
+	//=========================================================================
+	//transition1,transition2,transition3Left,transition3Right,transition4Left,
+	//transition4Right,transition5Left,transition5Right servent à conserver les transitions qui
+	//vont servir à communiquer entre transitions.
+	//=========================================================================
 	public AutomateNode(int x,int y,int num,int size,PNMLManipulation manip) {
 		this.num=num;
 		master=size/2;
@@ -40,8 +51,8 @@ public class AutomateNode {
 		this.x=x;
 		this.y=y;
 		this.manip=manip;
-		transition1=new ArrayList<TransitionHLAPI>();
-		transition2=new ArrayList<TransitionHLAPI>();
+		transition1=new Hashtable<String,TransitionHLAPI>();
+		transition2=new Hashtable<String,TransitionHLAPI>();
 		transition3Left=new ArrayList<TransitionHLAPI>();
 		transition3Right=new ArrayList<TransitionHLAPI>();
 		transition4Left=new ArrayList<TransitionHLAPI>();
@@ -50,25 +61,44 @@ public class AutomateNode {
 		transition5Right=new ArrayList<TransitionHLAPI>();
 
 	}
+	
+	//=========================================================================
+	//buildAutomate va construire l'automate pour le noeud num avec les size-1 branches 
+	//=========================================================================
 	public void buildAutomate() {
-		manip.place(name+"IsActive",x+master*300,y,CSS2Color.BLACK,true);
+		manip.place(name+"IsActive",x+master*100,y,CSS2Color.BLACK,true);
 		PrincipalNode=manip.getPlace();
-		manip.transition(name+"BreaksDown",x+master*300,y-100,CSS2Color.GRAY);
+		manip.transition(name+"BreaksDown",x+master*100,y-100,CSS2Color.GRAY);
 		brokDown=manip.getTransition();
-		manip.arc(true);
-		manip.place(name+"Failure",x+master*300,x-180,CSS2Color.GRAY,false);
-		manip.arc(false);
+		manip.arc(true,PrincipalNode,brokDown);
+		if(num==size/2) {
+			manip.place(name+"isTheNodeMaster",x+master*100+100,y-100,CSS2Color.YELLOW,true);
+			manip.arc(true,manip.getPlace(),brokDown);
+		}
+		manip.place(name+"Failure",x+master*100,y-180,CSS2Color.GRAY,false);
+		manip.arc(false,manip.getPlace(),brokDown);
 		int y_init=y+100;
 		int j=0;
-		for(int i=0;i<size;i++) {
-			if(i==num) {
-				i+=1;
-			}
-			buildBranch(x+j*300,y_init,i);
-			j+=1;
-			
+		if(size>4 && num==size/2+1) {
+			manip.transition(name+"DetectsTheBreakDownOfTheNodeMaster",x+(master-1)*300,y-100,CSS2Color.GRAY);
+			newMaster=manip.getTransition();
 		}
+		if(size>3 && num==size/2-1) {
+			manip.transition(name+"DetectsTheBreakDownOfTheNodeMaster",x+(master-1)*300,y-100,CSS2Color.GRAY);
+			newMaster=manip.getTransition();
+		}
+		for(int i=0;i<size;i++) {
+			if(i!=num) {
+				buildBranch(x+j*300,y_init,i);
+				j+=1;
+			}			
+		}
+		
 	}
+	
+	//=========================================================================
+	//buildBranch va construire 1 branche dans l'automate
+	//=========================================================================
 	public void buildBranch(int xBranch,int yBranch,int iBranch) {
 		String nameBranch="Node"+iBranch;
 		String nameTransition;
@@ -76,10 +106,13 @@ public class AutomateNode {
 		
 		nameTransition=name+"DetectsBreakDownOf"+nameBranch;
 		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
-		transition1.add(manip.getTransition());
+		transition1.put(nameBranch,manip.getTransition());
 		yBranch+=100;
 		manip.arc(false,PrincipalNode,manip.getTransition());
 		manip.arc(true,PrincipalNode,manip.getTransition());
+		if(iBranch==master && (num!=size/2-1 || num!=size/2+1)) {
+			detectNewMaster=manip.getTransition();
+		}
 		
 		namePlace=name+"WantsToManageTheBreakDownOf"+nameBranch;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
@@ -88,7 +121,7 @@ public class AutomateNode {
 		
 		nameTransition=name+"GetTheRightToManageTheBreakDownOf"+nameBranch;
 		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLACK);
-		transition2.add(manip.getTransition());
+		transition2.put(nameBranch,manip.getTransition());
 		yBranch+=100;
 		manip.arc(true);
 		
@@ -96,8 +129,13 @@ public class AutomateNode {
 			namePlace=name+"isTheNodeMaster";
 			manip.place(namePlace,xBranch-30,yBranch-50,CSS2Color.BLACK,false);
 			manip.arc(false);
+			if(size>4 && num==master+1) {
+				manip.arc(false,manip.getPlace(),newMaster);
+			}
+			if(size>3 && num==master-1) {
+				manip.arc(false,manip.getPlace(),newMaster);
+			}
 		}
-		
 		namePlace=name+"ManageTheBreakDownOf"+nameBranch;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLACK,false);
 		yBranch+=100;
@@ -172,10 +210,16 @@ public class AutomateNode {
 	public TransitionHLAPI getBreaksDown() {
 		return brokDown;
 	}
-	public ArrayList<TransitionHLAPI> getTabDetectsBreakDown() {
+	public TransitionHLAPI getnewMaster() {
+		return newMaster;
+	}
+	public TransitionHLAPI getdetectNewMaster() {
+		return detectNewMaster;
+	}
+	public Hashtable<String,TransitionHLAPI> getTabDetectsBreakDown() {
 		return transition1;
 	}
-	public ArrayList<TransitionHLAPI> getTabGetTheRight() {
+	public Hashtable<String,TransitionHLAPI> getTabGetTheRight() {
 		return transition2;
 	}
 	public ArrayList<TransitionHLAPI> getTabAsksLeafSetToLx() {
