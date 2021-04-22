@@ -31,6 +31,7 @@ public class ExtremityLeafSet {
 	private int x,y,size;
 	private PNMLManipulation manip;
 	private PlaceHLAPI principalNode;
+	private TransitionHLAPI activeInLeafSetLeft,activeInLeafSetRight;
 	public ExtremityLeafSet(int x,int y,int size,PNMLManipulation manip) {
 		this.x=x;
 		this.y=y;
@@ -64,6 +65,12 @@ public class ExtremityLeafSet {
 		principalNode=manip.getPlace();
 		
 		manip.transition(name+"EntersTheLeafSet",xplace,y-100,CSS2Color.BLACK);
+		if(LxOrRx) {
+			activeInLeafSetLeft=manip.getTransition();
+		}
+		else {
+			activeInLeafSetRight=manip.getTransition();
+		}
 		manip.arc(true);
 		
 		manip.place(name+"IsActiveInTheLeafSet",xplace,y-200,CSS2Color.BLACK,false);
@@ -99,6 +106,12 @@ public class ExtremityLeafSet {
 		manip.transition(name+"SendsItsLeafSetTo"+nameBranch,xBranch,yBranch,CSS2Color.BLUE);
 		manip.arc(true);
 		
+	}
+	public TransitionHLAPI getActiveInLeafSetLeft() {
+		return activeInLeafSetLeft;
+	}
+	public TransitionHLAPI getActiveInLeafSetRight() {
+		return activeInLeafSetRight;
 	}
 
 }

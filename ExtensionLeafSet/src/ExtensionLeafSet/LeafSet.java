@@ -21,6 +21,7 @@ import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
 import fr.lip6.move.pnml.framework.utils.ModelRepository;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Hashtable;
 
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
@@ -45,8 +46,7 @@ public class LeafSet {
 	}
 	public void buildAllLeafSet() {
 		buildAutomatesNodes();
-		ExtremityLeafSet extremite=new ExtremityLeafSet(x_centre-size*300,y+2000,size,manip);
-		extremite.buildExtremity();
+		buildExtremityLeafSet();
 	}
 	public void buildAutomatesNodes() {
 		//on créer les automates des noeuds
@@ -109,6 +109,37 @@ public class LeafSet {
 			}
 		}
 	
+	}
+	public void buildExtremityLeafSet() {
+		ExtremityLeafSet extremite=new ExtremityLeafSet(x_centre-size*300,y+2000,size,manip);
+		extremite.buildExtremity();
+		
+		manip.place("ANodeFromTheLeafSetOfLxIsACtiveInTheLeafSet",x_centre-(size/2)*300,y+1800,CSS2Color.RED,false);
+		PlaceHLAPI LxInTheLeafSet=manip.getPlace();
+		manip.arc(true,LxInTheLeafSet,extremite.getActiveInLeafSetLeft());
+		
+		manip.place("ANodeFromTheLeafSetOfRxIsACtiveInTheLeafSet",x_centre+(size/2)*300,y+1800,CSS2Color.RED,false);
+		PlaceHLAPI RxInTheLeafSet=manip.getPlace();
+		manip.arc(true,RxInTheLeafSet,extremite.getActiveInLeafSetRight());
+		
+		ArrayList<TransitionHLAPI> tab;
+		TransitionHLAPI tmp;
+		AutomateNode automate;
+		for(int i=0;i<size;i++) {
+			automate=automatesNode[i];
+			tab=automate.getTabSelectANodeofLx();
+			for(int j=0;j<tab.size();j++) {
+				tmp=tab.get(j);
+				manip.arc(false,LxInTheLeafSet,tmp);
+			}
+			tab=automate.getTabSelectANodeofRx();
+			for(int j=0;j<tab.size();j++) {
+				tmp=tab.get(j);
+				manip.arc(false,RxInTheLeafSet,tmp);
+			}
+		}
+
+
 	}
 
 }
