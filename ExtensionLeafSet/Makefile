@@ -4,7 +4,7 @@ help:
 	@echo " - test   :  compile la bibliothèque pnmlframework et exécute le code dans ReseauSimple pour générer un réseau avec les paramètres num=2 size=3 x=40 y=40"
 	@echo " - pretty : formater le PNML de sortie (nom du fichier dans la variable FILE)"
 	@echo
-	@echo "prévoyez 4 arguments : size size->taille du LeafSet"
+	@echo "prévoyez 1 argument : size ->taille du LeafSet"
 
 all:
 	javac -d bin -classpath ".:./lib/fr.lip6.pnml.framework.3rdpartimports_2.2.14.jar\

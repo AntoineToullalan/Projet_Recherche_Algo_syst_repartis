@@ -44,6 +44,6 @@ public class Main {
 		LeafSet leafset = new LeafSet(size,manip);
 		leafset.buildAllLeafSet();
 		//on génère le fichier pnml contenant le réseau construit
-		manip.generate_file("ExtensionLeafSet_Size"+size);
+		manip.generate_file("ExtensionLeafSet_Size"+(size-1));
 	}
 }
