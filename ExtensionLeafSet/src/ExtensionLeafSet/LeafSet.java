@@ -32,6 +32,7 @@ public class LeafSet {
 	private PlaceHLAPI reservoir;
 	private AutomateNode[] automatesNode;
 	private PlaceHLAPI[][] placesCommNodes;
+	private ExtremityLeafSet extremite;
 	
 	public LeafSet(int size,PNMLManipulation manip) {
 		this.manip=manip;
@@ -45,8 +46,28 @@ public class LeafSet {
 		placesCommNodes=new PlaceHLAPI[size][2];
 	}
 	public void buildAllLeafSet() {
+		PlaceHLAPI[] placeCommExtremity;
+		PlaceHLAPI p1_Lx,p2_Lx,p1_Rx,p2_Rx;
+		Hashtable<String,TransitionHLAPI>[] extComm;
+		
 		buildAutomatesNodes();
 		buildExtremityLeafSet();
+		extComm=extremite.getCommAutomate();
+		
+		for(int i=0;i<size;i++) {
+			placeCommExtremity=automatesNode[i].getCommWithExtremity();
+			p1_Lx=placeCommExtremity[0];
+			p2_Lx=placeCommExtremity[1];
+			p1_Rx=placeCommExtremity[2];
+			p2_Rx=placeCommExtremity[3];
+			
+			manip.arc(true,p1_Lx,extComm[0].get("Node"+i));
+			manip.arc(false,p2_Lx,extComm[1].get("Node"+i));
+			manip.arc(true,p1_Rx,extComm[2].get("Node"+i));
+			manip.arc(false,p2_Rx,extComm[3].get("Node"+i));
+
+		}
+		
 	}
 	public void buildAutomatesNodes() {
 		//on créer les automates des noeuds
@@ -111,14 +132,14 @@ public class LeafSet {
 	
 	}
 	public void buildExtremityLeafSet() {
-		ExtremityLeafSet extremite=new ExtremityLeafSet(x_centre-size*300,y+2000,size,manip);
+		extremite=new ExtremityLeafSet(x,y+2000,size,manip);
 		extremite.buildExtremity();
 		
-		manip.place("ANodeFromTheLeafSetOfLxIsACtiveInTheLeafSet",x_centre-(size/2)*300,y+1800,CSS2Color.RED,false);
+		manip.place("ANodeFromTheLeafSetOfLxIsACtiveInTheLeafSet",size*300,y+1800,CSS2Color.RED,false);
 		PlaceHLAPI LxInTheLeafSet=manip.getPlace();
 		manip.arc(true,LxInTheLeafSet,extremite.getActiveInLeafSetLeft());
 		
-		manip.place("ANodeFromTheLeafSetOfRxIsACtiveInTheLeafSet",x_centre+(size/2)*300,y+1800,CSS2Color.RED,false);
+		manip.place("ANodeFromTheLeafSetOfRxIsACtiveInTheLeafSet",x-size*300,y+1800,CSS2Color.RED,false);
 		PlaceHLAPI RxInTheLeafSet=manip.getPlace();
 		manip.arc(true,RxInTheLeafSet,extremite.getActiveInLeafSetRight());
 		

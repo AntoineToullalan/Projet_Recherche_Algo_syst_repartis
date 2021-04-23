@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 //=========================================================================
 //ExtremityLeafSet construit les automates de Gx et Dx
@@ -32,7 +33,12 @@ public class ExtremityLeafSet {
 	private PNMLManipulation manip;
 	private PlaceHLAPI principalNode;
 	private TransitionHLAPI activeInLeafSetLeft,activeInLeafSetRight;
+	private Hashtable<String,TransitionHLAPI> transitionLx1,transitionLx2,transitionRx1,transitionRx2;
 	public ExtremityLeafSet(int x,int y,int size,PNMLManipulation manip) {
+		transitionLx1=new Hashtable<String,TransitionHLAPI>();
+		transitionLx2=new Hashtable<String,TransitionHLAPI>();
+		transitionRx1=new Hashtable<String,TransitionHLAPI>();
+		transitionRx2=new Hashtable<String,TransitionHLAPI>();
 		this.x=x;
 		this.y=y;
 		this.size=size;
@@ -41,8 +47,10 @@ public class ExtremityLeafSet {
 	
 	public void buildExtremity() {
 		int y_init=y;
+		int x_init=x;
+		x=(size/2)*300;
 		LDx(true);
-		x+=size*300;
+		x=x_init-size*300;
 		y=y_init;
 		LDx(false);
 	}
@@ -95,6 +103,13 @@ public class ExtremityLeafSet {
 			name="Rx";
 		}
 		manip.transition(name+"ReceiveARequestToSendItsLeafSetTo"+nameBranch,xBranch,yBranch,CSS2Color.BLUE);
+		if(LxOrRx) {
+			transitionLx1.put(nameBranch,manip.getTransition());
+		}
+		else {
+			transitionRx1.put(nameBranch,manip.getTransition());
+		}
+		
 		yBranch+=100;
 		manip.arc(false,principalNode,manip.getTransition());
 		manip.arc(true,principalNode,manip.getTransition());
@@ -105,6 +120,12 @@ public class ExtremityLeafSet {
 		
 		manip.transition(name+"SendsItsLeafSetTo"+nameBranch,xBranch,yBranch,CSS2Color.BLUE);
 		manip.arc(true);
+		if(LxOrRx) {
+			transitionLx2.put(nameBranch,manip.getTransition());
+		}
+		else {
+			transitionRx2.put(nameBranch,manip.getTransition());
+		}
 		
 	}
 	public TransitionHLAPI getActiveInLeafSetLeft() {
@@ -113,5 +134,12 @@ public class ExtremityLeafSet {
 	public TransitionHLAPI getActiveInLeafSetRight() {
 		return activeInLeafSetRight;
 	}
-
+	public Hashtable<String,TransitionHLAPI>[] getCommAutomate(){
+		Hashtable<String,TransitionHLAPI>[] res = new Hashtable[4];
+		res[0]=transitionLx1;
+		res[1]=transitionLx2;
+		res[2]=transitionRx1;
+		res[3]=transitionRx2;
+		return res;
+	}
 }

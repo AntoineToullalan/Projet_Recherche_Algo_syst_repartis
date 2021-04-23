@@ -33,7 +33,7 @@ public class AutomateNode {
 	private int num,size,x,y,master;
 	private String name;
 	private PNMLManipulation manip;
-	private PlaceHLAPI PrincipalNode,IsMaster;
+	private PlaceHLAPI PrincipalNode,IsMaster,p1,p2,p3,p4;
 	private TransitionHLAPI brokDown,newMaster,detectNewMaster;
 	private Hashtable<String,TransitionHLAPI> transition1,transition2;
 	private ArrayList<TransitionHLAPI> transition3Left,transition3Right,transition4Left,transition4Right,transition5Left,transition5Right;
@@ -92,6 +92,26 @@ public class AutomateNode {
 				buildBranch(x+j*300,y_init,i);
 				j+=1;
 			}			
+		}
+		manip.place("RequestOf"+name+"IsSentToLx",x,y+1200,CSS2Color.RED,false);
+		p1=manip.getPlace();
+		manip.place("LeafSetOfLxIsSentTo"+name,x,y+1300,CSS2Color.RED,false);
+		p2=manip.getPlace();
+		manip.place("RequestOf"+name+"IsSentToRx",x+(size-2)*300,y+1200,CSS2Color.RED,false);
+		p3=manip.getPlace();
+		manip.place("LeafSetOfRxIsSentTo"+name,x+(size-2)*300,y+1300,CSS2Color.RED,false);
+		p4=manip.getPlace();
+		for(int i=0;i<transition3Left.size();i++) {
+			manip.arc(false,p1,transition3Left.get(i));
+		}
+		for(int i=0;i<transition3Right.size();i++) {
+			manip.arc(false,p3,transition3Right.get(i));
+		}
+		for(int i=0;i<transition4Left.size();i++) {
+			manip.arc(true,p2,transition4Left.get(i));
+		}
+		for(int i=0;i<transition4Right.size();i++) {
+			manip.arc(true,p4,transition4Right.get(i));
 		}
 		
 	}
@@ -203,7 +223,7 @@ public class AutomateNode {
 			transition5Right.add(manip.getTransition());
 		}
 		
-		namePlace=nameBranch+"NodeFailureProcessedBy"+name;
+		namePlace=nameBranch+"FailureProcessedBy"+name;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
 		manip.arc(false);
 	}
@@ -222,22 +242,14 @@ public class AutomateNode {
 	public Hashtable<String,TransitionHLAPI> getTabGetTheRight() {
 		return transition2;
 	}
-	public ArrayList<TransitionHLAPI> getTabAsksLeafSetToLx() {
-		return transition3Left;
-	}
-	public ArrayList<TransitionHLAPI> getTabAsksLeafSetToRx() {
-		return transition3Right;
-	}
-	public ArrayList<TransitionHLAPI> getTabReceiveLeafSetofLx() {
-		return transition4Left;
-	}
-	public ArrayList<TransitionHLAPI> getTabReceiveLeafSetofRx() {
-		return transition4Right;
-	}
 	public ArrayList<TransitionHLAPI> getTabSelectANodeofLx() {
 		return transition5Left;
 	}
 	public ArrayList<TransitionHLAPI> getTabSelectANodeofRx() {
 		return transition5Right;
+	}
+	public PlaceHLAPI[] getCommWithExtremity() {
+		PlaceHLAPI[] res ={p1,p2,p3,p4};
+		return res;
 	}
 }

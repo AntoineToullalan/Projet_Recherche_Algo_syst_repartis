@@ -30,7 +30,7 @@ public class Main {
 		int size;
 		try {
 			//on récupère l'argument : size
-			size  = Integer.parseInt(args[0]);
+			size  = Integer.parseInt(args[0])+1;
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Usage: ./cliser_os size ");			
 			return;
