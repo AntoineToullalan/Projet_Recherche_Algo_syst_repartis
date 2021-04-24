@@ -31,8 +31,9 @@ public class Main {
 		try {
 			//on récupère l'argument : size
 			size  = Integer.parseInt(args[0]);
+			//num = Integer.parseInt(args[1]);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Usage: ./cliser_os size ");			
+			System.out.println("Deux Arguments Sont Nécessaires ! ");			
 			return;
 		}
 		

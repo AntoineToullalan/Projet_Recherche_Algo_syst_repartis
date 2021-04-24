@@ -30,7 +30,7 @@ import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 
 public class CAN{
 	private PNMLManipulation manip;
-	private int x,y,size;
+	private int x,y,size,num;
 	private String name;
 	private PlaceHLAPI cpt,canvide;
 	private TransitionHLAPI trans1,trans2,trans3;
@@ -43,14 +43,31 @@ public class CAN{
 	public CAN(int size,PNMLManipulation manip) {
 		this.manip=manip;
 		this.size=size;
+		// x=(size/2)*1500;
+		// y=100;
+
+		int ecart = 200;
+		int absdep = 250;
+		int orddep = 400;
+		int tailleauto = size*absdep;
+
+		if (size>2) {
+
+			manip.place("Compteur",size*(tailleauto+500)/2 -500 ,y+1500,CSS2Color.GREEN,false);
+			cpt=manip.getPlace();
+			manip.place("CANVide",size*(tailleauto+500)/2 -500, y+100,CSS2Color.GREEN,true);
+			canvide=manip.getPlace();
+			
+		}
+		else{
+			manip.place("Compteur",size*(tailleauto+500)/2 ,y+1500,CSS2Color.GREEN,false);
+			cpt=manip.getPlace();
+			manip.place("CANVide",size*(tailleauto+500)/2,y+100,CSS2Color.GREEN,true);
+			canvide=manip.getPlace();
+		}
 		
-		x=1700;
-		y=900;
+
 		
-		manip.place("Compteur",x,y+400,CSS2Color.GREEN,false);
-		cpt=manip.getPlace();
-		manip.place("CANVide",x,y+600,CSS2Color.GREEN,true);
-		canvide=manip.getPlace();
 
 		automatesNode = new AutomateNode[size];
 		placescomm = new PlaceHLAPI[size][size];
@@ -64,12 +81,37 @@ public class CAN{
 
 	public void buildAllnodes() {
 		buildAutomatesNodes();
+		buildConnexions(); 
 		
 	}
 
 	public void buildAutomatesNodes() {
+
+		int ecart = 200;
+		int absdep = 250;
+		int orddep = 400;
+		int tailleauto = size*absdep;
+		int departauto = ecart;
+
+		for (int i=0;i<size; i++) {
+			
+			automatesNode[i] = new AutomateNode(departauto,orddep,i,size,manip);
+			automatesNode[i].buildAutomate();
+			departauto = 500+(i+1)*tailleauto;
+			
+		}
+
+	}
+
+
+
+
+	public void buildConnexions() {
+		
 		//on créer les automates des noeuds
-		for(int i=0;i<size;i++) {
+		for(int i=0; i<size; i++) {
+
+			/*
 			int abs=0;
 			int ord = 0;
 			if (i%2==0) {
@@ -101,7 +143,7 @@ public class CAN{
 			}
 			
 			name="Node"+i;
-			automatesNode[i].buildAutomate();
+			automatesNode[i].buildAutomate(); */
 			//créer les places de communication
 
 
@@ -118,8 +160,9 @@ public class CAN{
 			manip.arc(true,canvide,trans4);
 			manip.arc(false,cpt,trans2);
 			manip.arc(false,cpt,trans3);
-
-
+		}
+	}
+			/*
 			//créer autant de transisions que de noeuds - 1
 			for (int j=0; j<size; j++ ) {
 
@@ -170,24 +213,12 @@ public class CAN{
 					manip.arc(true,placescomm[j][i],gestion[i][j]);
 
 				}
-
-
-
-
 				
 			}
-
-
 
 		}
 		
 	}
-
-	public int getRandomElement(List<Integer> list)
-    {
-        Random rand = new Random();
-        return list.get(rand.nextInt(list.size()));
-    }
-
+*/
 
 }

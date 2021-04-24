@@ -56,93 +56,123 @@ public class AutomateNode {
 	//buildAutomate va construire l'automate pour le noeud num avec les size-1 branches 
 	//=========================================================================
 	public void buildAutomate() {
+
+		InsertInEmptyCan();
+		insertInNotEmptyCan();
+
+	}
+
+
+	public void InsertInEmptyCan(){
+
+		int absdep = 250;
+		int ecart = 75;
+		int tailleauto = size*absdep;
+		
+
+
 		//Noeud à insérer
-		manip.place(name+"aInserer",x-master*100,y,CSS2Color.BLACK,true);
+		manip.place(name+"AInserer",x + tailleauto/2, y,CSS2Color.BLACK,true);
 		principalNode=manip.getPlace();
 		//Première insertion
-		manip.transition(name+"FirstInsertInCAN",x-master*100+200,y,CSS2Color.BLACK);
+		manip.transition(name+"FirstInsertInCAN",x + tailleauto/4,y+100,CSS2Color.BLACK);
 		firstinsert=manip.getTransition();
 		//Nieme insertion
-		manip.transition(name+"NInsertInCAN",x-master*100-200,y,CSS2Color.BLACK);
+		manip.transition(name+"NInsertInCAN",x + 3*tailleauto/4,y+100,CSS2Color.BLACK);
 		moreinsert=manip.getTransition();
 
 		manip.arc(true,principalNode,firstinsert);
 		manip.arc(true,principalNode,moreinsert);
 
+		int b = y + 100;
 
 		//construction branche première insertion:
-
-		manip.place(name+"DHTinfo",x-master*100+200,y-100,CSS2Color.BLACK,false);
+		
+		manip.place(name+"DHTinfo",x + tailleauto/4, b+ecart ,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),firstinsert);
-		manip.transition(name+"ChooseID",x-master*100+200,y-200,CSS2Color.BLACK);
+
+		manip.transition(name+"ChooseID",x + tailleauto/4, b+2*ecart ,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"ID",x-master*100+200,y-300,CSS2Color.BLACK,false);
+		manip.place(name+"ID",x + tailleauto/4, b+3*ecart, CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"GetsDHTInfo",x-master*100+200,y-400,CSS2Color.BLACK);
+
+		manip.transition(name+"GetsDHTInfo",x + tailleauto/4, b+5*ecart ,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"ResZone",x-master*100+200,y-500,CSS2Color.BLACK,false);
+		manip.place(name+"ResZone",x + tailleauto/4, b+6*ecart ,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"AssociatesDHTInfo",x-master*100+200,y-600,CSS2Color.BLACK);
+
+		manip.transition(name+"AssociatesDHTInfo",x + tailleauto/4, b+7*ecart ,CSS2Color.BLACK);
 		associate = manip.getTransition();
 		manip.arc(true,manip.getPlace(),associate);
 
-		manip.place(name+"IsInserted",x-master*100+100,y-200,CSS2Color.BLACK,false);
+		manip.place(name+"IsInserted",x + tailleauto/4, b+9*ecart ,CSS2Color.BLACK,false);
 		estinsere = manip.getPlace();
 		manip.arc(false,estinsere,associate);
 
+	}
 
+	public void insertInNotEmptyCan(){
+
+		int absdep = 250;
+		int ecart = 75;
+		int tailleauto = size*absdep;
+		int b = y + 100;
 
 		//construction branche Nième insertion:
 
-		manip.place(name+"DHTinfo2",x-master*100-200,y-100,CSS2Color.BLACK,false);
+		manip.place(name+"DHTinfo2",x + 3*tailleauto/4, b+ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),moreinsert);
-		manip.transition(name+"ChooseID2",x-master*100-200,y-200,CSS2Color.BLACK);
+
+		manip.transition(name+"ChooseID2",x + 3*tailleauto/4, b+2*ecart,CSS2Color.BLACK);
 		dhtinfo = manip.getPlace();
 		manip.arc(true,dhtinfo,manip.getTransition());
 
-		manip.place(name+"ID2",x-master*100-200,y-300,CSS2Color.BLACK,false);
+		manip.place(name+"ID2",x + 3*tailleauto/4, b+3*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"ChooseBootstrap",x-master*100-200,y-600,CSS2Color.BLACK);
+
+		manip.transition(name+"ChooseBootstrap",x + 3*tailleauto/4,b+4*ecart,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"Bootstrap",x-master*100-100,y-600,CSS2Color.BLACK,false);
+		manip.place(name+"Bootstrap",x + 3*tailleauto/4,b+5*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"SendOfaJoinMsg",x-master*100-100,y-500,CSS2Color.BLACK);
+
+		manip.transition(name+"SendOfaJoinMsg",x + 3*tailleauto/4,b+6*ecart,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"JoinMsg",x-master*100-100,y-450,CSS2Color.BLACK,false);
+		manip.place(name+"JoinMsg",x + 3*tailleauto/4,b+7*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"AsksSharing",x-master*100-100,y-350,CSS2Color.BLACK);
+
+		manip.transition(name+"AsksSharing",x + 3*tailleauto/4,b+8*ecart,CSS2Color.BLACK);
 		asksharing = manip.getTransition();
 		manip.arc(true,manip.getPlace(),asksharing);
 
-
-		manip.place(name+"Request",x-master*100-300,y-350,CSS2Color.RED,false);
+		manip.place(name+"Request",x+100+3*tailleauto/4,b+9*ecart,CSS2Color.RED,false);
 		req = manip.getPlace();
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.place(name+"WaitAnswer",x-master*100-100,y-300,CSS2Color.BLACK,false);
+
+		manip.place(name+"WaitAnswer",x-ecart+3*tailleauto/4, b+8*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
 		
-		manip.transition(name+"InsertNode",x-master*100,y-200,CSS2Color.BLACK);
+		manip.transition(name+"InsertNode",x-ecart+3*tailleauto/4,b+9*ecart,CSS2Color.BLACK);
 		isinsert = manip.getTransition();
 		manip.arc(true,manip.getPlace(),isinsert);
 		manip.arc(false,estinsere,isinsert);
 
-		manip.transition(name+"NotInsertNode",x-master*100-100,y-200,CSS2Color.BLACK);
+		manip.transition(name+"NotInsertNode",x-2*ecart+3*tailleauto/4,b+8*ecart,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"OKshare",x-master*100,y-300,CSS2Color.ORANGE,false);
+		manip.place(name+"OKshare",x-ecart+3*tailleauto/4,b+10*ecart,CSS2Color.ORANGE,false);
 		oKshare = manip.getPlace();
 		manip.arc(true,oKshare,isinsert);
-		manip.place(name+"NOshare",x-master*100-300,y-100,CSS2Color.ORANGE,false);
+		manip.place(name+"NOshare",x-2*ecart+3*tailleauto/4,b+10*ecart,CSS2Color.ORANGE,false);
 		nOshare = manip.getPlace();
 		manip.arc(true,nOshare,manip.getTransition());
 
-		manip.place(name+"IsNonInsertedNode",x-master*100-100,y-100,CSS2Color.BLACK,false);
+		manip.place(name+"IsNonInsertedNode",x-2*ecart+3*tailleauto/4,b+3*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
-		manip.transition(name+"RetryInsertion",x-master*100-100,y-50,CSS2Color.BLACK);
+		manip.transition(name+"RetryInsertion",x-2*ecart+3*tailleauto/4,b+ecart,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 		manip.arc(false,dhtinfo,manip.getTransition());
 
@@ -185,5 +215,7 @@ public class AutomateNode {
 	public TransitionHLAPI getaskshare(){
 		return asksharing;
 	}
+	
+	
 
 }
