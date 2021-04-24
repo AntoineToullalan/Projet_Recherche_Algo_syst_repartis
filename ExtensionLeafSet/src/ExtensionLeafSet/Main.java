@@ -30,7 +30,7 @@ public class Main {
 		int size;
 		try {
 			//on récupère l'argument : size
-			size  = Integer.parseInt(args[0])+1;
+			size  = Integer.parseInt(args[0]);
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("Usage: ./cliser_os size ");			
 			return;
@@ -44,6 +44,6 @@ public class Main {
 		LeafSet leafset = new LeafSet(size,manip);
 		leafset.buildAllLeafSet();
 		//on génère le fichier pnml contenant le réseau construit
-		manip.generate_file("ExtensionLeafSet_Size"+(size-1));
+		manip.generate_file("ExtensionLeafSet_Size"+size);
 	}
 }
