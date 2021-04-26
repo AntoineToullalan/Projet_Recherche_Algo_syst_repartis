@@ -1,10 +1,10 @@
 help:
 	@echo "Deux arguments possibles :"
-	@echo " - all    : compile la bibliothèque pnmlframework"
-	@echo " - test   :  compile la bibliothèque pnmlframework et exécute le code dans ReseauSimple pour générer un réseau avec les paramètres size=6 »
+	@echo " - all    : modélise l’extension du LeafSet avec les arguments SIZE-> taille du LeafSet BREAKDOWN->nombre de pannes dans le LeafSet"
+	@echo " - test   :  odélise l’extension du LeafSet avec les paramètres SIZE=6 et BREAKDOWN=3"
 	@echo " - pretty : formater le PNML de sortie (nom du fichier dans la variable FILE)"
 	@echo
-	@echo "prévoyez 1 argument : size ->taille du LeafSet"
+	@echo "prévoyez 2 arguments : SIZE ->taille du LeafSet et BREAKDOWN->nombre de pannes dans le LeafSet"
 
 all:
 	javac -d bin -classpath ".:./lib/fr.lip6.pnml.framework.3rdpartimports_2.2.14.jar\
