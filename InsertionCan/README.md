@@ -1,22 +1,10 @@
-Reseau_simple
+Modélisation de l'insertion d'un Noeud dans un DHT de type CAN grâce aux réseaux de Petri.
 
 Depencencies: PNML Framework, EMF Ecore, EMF Common, OCL Ecore, OCL Common
 
 Usage:
 
-Pour OS
+make test SIZE=(taille_du_can)
 
-make all
-
-bash cliser_os.sh nb length
-
-OU
-
-./cliser_os_1 nb_clients nb_serveurs
-
-Pour Window
-
-sh compile_win
-
-sh cliser_win nb_clients nb_serveurs
+les pnml genérés sont dans testmodeles
 
