@@ -1,7 +1,7 @@
 help:
 	@echo "Deux arguments possibles :"
 	@echo " - all    : compile la bibliothèque pnmlframework"
-	@echo " - test   :  compile la bibliothèque pnmlframework et exécute le code dans ReseauSimple pour générer un réseau avec les paramètres size=6 »
+	@echo " - test   :  compile la bibliothèque pnmlframework et exécute le code dans ReseauSimple pour générer un réseau avec les paramètres size=6 "
 	@echo " - pretty : formater le PNML de sortie (nom du fichier dans la variable FILE)"
 	@echo
 	@echo "prévoyez 1 argument : size ->taille du LeafSet"
