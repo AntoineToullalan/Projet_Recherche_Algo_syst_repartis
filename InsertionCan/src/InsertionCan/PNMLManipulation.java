@@ -19,9 +19,9 @@ import fr.lip6.move.pnml.framework.general.PnmlExport;
 import fr.lip6.move.pnml.framework.utils.exception.InvalidIDException;
 import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
 import fr.lip6.move.pnml.framework.utils.ModelRepository;
+import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 import java.io.File;
 import java.io.IOException;
-import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
 
 // =========================================================================
 //PNMLManipulation est une classe utilisant la bibliothèque pnmlframework 

@@ -1,33 +1,11 @@
 package insertioncan;
-import fr.lip6.move.pnml.ptnet.hlapi.PageHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.PlaceHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.PositionHLAPI;
 import fr.lip6.move.pnml.ptnet.hlapi.TransitionHLAPI;
 import fr.lip6.move.pnml.ptnet.CSS2Color;
-import fr.lip6.move.pnml.ptnet.hlapi.AnnotationGraphicsHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi  .ArcGraphicsHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.ArcHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.DimensionHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.LineHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.NameHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.NodeGraphicsHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.OffsetHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.PTMarkingHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.PNTypeHLAPI;
-import fr.lip6.move.pnml.ptnet.hlapi.PetriNetHLAPI;
-import fr.lip6.move.pnml.framework.general.PnmlExport;
-import fr.lip6.move.pnml.framework.utils.exception.InvalidIDException;
-import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
-import fr.lip6.move.pnml.framework.utils.ModelRepository;
-import java.io.File;
-import java.io.IOException;
-import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
-import java.util.ArrayList;
-import java.util.Hashtable;
 
 //=========================================================================
-//AutomateNode est une classe permettant de créer les automates pour chaque 
-//noeud dans un LeafSet.
+//AutomateNode est une classe permettant de créer l'automate de chaque 
+//noeud dans un CAN. Les communications externes sont dans CAN.java
 //=========================================================================
 public class AutomateNode {
 	private int num,size,x,y,master,ecart,tailleauto,b;
@@ -39,9 +17,7 @@ public class AutomateNode {
 	private PlaceHLAPI[] placescomm,placescomm2;
 	
 	//=========================================================================
-	//transition1,transition2,transition3Left,transition3Right,transition4Left,
-	//transition4Right,transition5Left,transition5Right servent à conserver les transitions qui
-	//vont servir à communiquer entre transitions.
+	// On crée un automate en position x,y,qui aura une taille max de tailleauto
 	//=========================================================================
 	public AutomateNode(int x,int y,int num,int size,PNMLManipulation manip) {
 		this.num=num;
@@ -51,11 +27,11 @@ public class AutomateNode {
 		this.x=x;
 		this.y=y;
 		this.manip=manip;
-
+		//on défini l'écart entre chaque transition et place
 		ecart = 85;
 		tailleauto = 1000;
 		b = y + 100;
-
+		//tableaux pour stocker les noeuds à réutiliser lors de la création des transistions
 		placescomm = new PlaceHLAPI[size];
 		placescomm2 = new PlaceHLAPI[size];
 		askreq = new TransitionHLAPI[size];
@@ -67,7 +43,7 @@ public class AutomateNode {
 	}
 	
 	//=========================================================================
-	//buildAutomate va construire l'automate pour le noeud num avec les size-1 branches 
+	//buildAutomate va construire l'automate du noeud num
 	//=========================================================================
 	public void buildAutomate() {
 
@@ -184,33 +160,33 @@ public class AutomateNode {
 
 	public void communicNodes(){
 
-		//créer autant de transisions que de noeuds - 1
+		//créer les places de communication pour chaque noeud à insérer
 		for (int j=0; j<size; j++ ) {
 
 			if (j!=num) {
 			
-				manip.transition(name+"AskReq"+j, x+3*tailleauto/4+150, b+8*ecart+(j+1)*100 ,CSS2Color.RED);
+				manip.transition(name+"AskReq"+j, x+3*tailleauto/4+150+(j)*ecart, b+8*ecart+(j+1)*100 ,CSS2Color.RED);
 				askreq[j] = manip.getTransition();
 				
 				manip.arc(true,req,manip.getTransition());
-				manip.place(name+"requestsent"+j,x+3*tailleauto/4+200, b+8*ecart+(j+1)*100 ,CSS2Color.RED,false);
+				manip.place(name+"requestsent"+j,x+3*tailleauto/4+200+(j)*ecart, b+8*ecart+(j+1)*100 ,CSS2Color.RED,false);
 				placescomm[j] = manip.getPlace();
 				
 				manip.arc(false,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"Gestion"+j,x + tailleauto/4, b+15*ecart+(j+1)*150,CSS2Color.BLUE);
+				manip.transition(name+"Gestion"+j,x + tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE);
 				gestion[j] = manip.getTransition();
 				
 				manip.arc(true,estinsere,manip.getTransition());
 				manip.arc(false,estinsere,manip.getTransition());
-				manip.place(name+"GiveAnswer"+j,x-ecart+tailleauto/4, b+15*ecart+(j+1)*150,CSS2Color.BLUE,false);
+				manip.place(name+"GiveAnswer"+j,x-ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE,false);
 				placescomm2[j] = manip.getPlace();
 				
 				manip.arc(false,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"SendAccept"+j,x-2*ecart+tailleauto/4, b+15*ecart+(j+1)*150,CSS2Color.BLUE);
+				manip.transition(name+"SendAccept"+j,x-2*ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE);
 				accept[j] = manip.getTransition();
 				
 				manip.arc(true,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"SendRefuse"+j,x-ecart+tailleauto/4, b+15*ecart+(j+1)*150-ecart,CSS2Color.BLUE);
+				manip.transition(name+"SendRefuse"+j,x-ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150-ecart,CSS2Color.BLUE);
 				refus[j] = manip.getTransition();
 				
 				manip.arc(true,manip.getPlace(),manip.getTransition());
@@ -220,7 +196,10 @@ public class AutomateNode {
 
 	}
 
-
+	//=========================================================================
+	//Quelques fonctions pour avoir accès aux variables propre à la classe
+	//=========================================================================
+	
 	public PlaceHLAPI getplacescomm(int i){
 		return placescomm[i];
 	}
