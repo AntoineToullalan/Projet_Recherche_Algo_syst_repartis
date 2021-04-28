@@ -59,10 +59,10 @@ public class AutomateNode {
 		manip.place(name+"ReadyToInsert",x + tailleauto/2, y,CSS2Color.BLACK,true);
 		principalNode=manip.getPlace();
 		//Première insertion
-		manip.transition(name+"FirstInsertInCAN",x + tailleauto/4,y+100,CSS2Color.BLACK);
+		manip.transition(name+"FirstInCAN",x + tailleauto/4,y+100,CSS2Color.BLACK);
 		firstinsert=manip.getTransition();
 		//Nieme insertion
-		manip.transition(name+"NInsertInCAN",x + 3*tailleauto/4,y+100,CSS2Color.BLACK);
+		manip.transition(name+"NextInCAN",x + 3*tailleauto/4,y+100,CSS2Color.BLACK);
 		moreinsert=manip.getTransition();
 
 		manip.arc(true,principalNode,firstinsert);
