@@ -56,7 +56,7 @@ public class AutomateNode {
 	public void InsertInEmptyCan(){
 
 		//Noeud à insérer
-		manip.place(name+"AInserer",x + tailleauto/2, y,CSS2Color.BLACK,true);
+		manip.place(name+"ReadyToInsert",x + tailleauto/2, y,CSS2Color.BLACK,true);
 		principalNode=manip.getPlace();
 		//Première insertion
 		manip.transition(name+"FirstInsertInCAN",x + tailleauto/4,y+100,CSS2Color.BLACK);
@@ -173,7 +173,7 @@ public class AutomateNode {
 				placescomm[j] = manip.getPlace();
 				
 				manip.arc(false,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"Gestion"+j,x + tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150,CSS2Color.BLUE);
+				manip.transition(name+"GetRequest"+j,x + tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150,CSS2Color.BLUE);
 				gestion[j] = manip.getTransition();
 				
 				manip.arc(true,estinsere,manip.getTransition());

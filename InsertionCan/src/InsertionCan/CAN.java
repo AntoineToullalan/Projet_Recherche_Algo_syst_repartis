@@ -28,7 +28,7 @@ public class CAN{
 		//On met en place le compteur et le jeton de CAN vide
 		manip.place("InsertedCount",size*(tailleauto+500)/2 + 200,y+300,CSS2Color.GREEN,false);
 		cpt=manip.getPlace();
-		manip.place("CANVide",size*(tailleauto+500)/2, y+300,CSS2Color.GREEN,true);
+		manip.place("EmptyCAN",size*(tailleauto+500)/2, y+300,CSS2Color.GREEN,true);
 		canvide=manip.getPlace();
 		automatesNode = new AutomateNode[size];
 
