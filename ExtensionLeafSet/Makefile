@@ -40,4 +40,4 @@ test:
 	./lib/slf4j-jdk14-2.0.0-alpha1.jar" extensionleafset.Main 6 "ExtensionOfLeafSetSize6"; 
 
 pretty:
-	xmllint -format "testmodel/$(FILE).pnml" > prettypnml/$(FILE).xml
+	xmllint -format "$(FILE)" > p_$(FILE)
