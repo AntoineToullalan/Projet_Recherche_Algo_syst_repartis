@@ -8,4 +8,7 @@ We consider that :
 -if the node which breaks down is the Node Master, then the LeafSet of either the right or left extremity is chosen according to the side of the Node that has detected the breakdown.
 -In the LeafSet of size S, it has S+1 nodes with the node master, S has to be pair so that there are as much node on the left side and the right side.
 
+Initially this model is set to support one crash, the initial marking of this model has been modified to make its reachability graph significantly more complex.
+
 This model has one parameter which is the Size S of the LeafSet (it will have S+1 nodes).
+
