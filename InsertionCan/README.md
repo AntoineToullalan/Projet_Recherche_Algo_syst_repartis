@@ -6,5 +6,5 @@ Usage:
 
 make test SIZE=(taille_du_can)
 
-les pnml genérés sont dans testmodeles
+les pnml genérés sont dans le fichier testmodeles
 

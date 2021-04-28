@@ -1,6 +1,6 @@
 help:
-	@echo " - test   :  compile la bibliothèque pnmlframework et exécute le code pour générer un réseau"
-	@echo " - pretty : formater le PNML de sortie (nom du fichier dans la variable FILE)"
+	@echo " - test  SIZE = Nb_Noeuds_à_inserer : compile la bibliothèque pnmlframework et exécute le code pour générer un nombre de noeuds indiqué à insérer"
+	@echo " - pretty FILE=Nom_fichier : formater le PNML de sortie (nom du fichier dans la variable FILE)"
 
 test:
 	@echo test with determinated size 
