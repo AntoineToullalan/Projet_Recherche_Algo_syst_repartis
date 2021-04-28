@@ -91,7 +91,7 @@ public class AutomateNode {
 		associate = manip.getTransition();
 		manip.arc(true,manip.getPlace(),associate);
 
-		manip.place(name+"IsInserted",x + tailleauto/4, b+12*ecart ,CSS2Color.BLACK,false);
+		manip.place(name+"IsInserted",x + tailleauto/4, b+11*ecart ,CSS2Color.BLACK,false);
 		estinsere = manip.getPlace();
 		manip.arc(false,estinsere,associate);
 
@@ -134,7 +134,7 @@ public class AutomateNode {
 		manip.place(name+"WaitAnswer",x + 3*tailleauto/4, b+9*ecart,CSS2Color.BLACK,false);
 		manip.arc(false,manip.getPlace(),manip.getTransition());
 		
-		manip.transition(name+"InsertNode",x+3*tailleauto/4,b+12*ecart,CSS2Color.BLACK);
+		manip.transition(name+"InsertNode",x+3*tailleauto/4,b+11*ecart,CSS2Color.BLACK);
 		isinsert = manip.getTransition();
 		manip.arc(true,manip.getPlace(),isinsert);
 		manip.arc(false,estinsere,isinsert);
@@ -142,7 +142,7 @@ public class AutomateNode {
 		manip.transition(name+"NotInsertNode",x-2*ecart+3*tailleauto/4,b+9*ecart,CSS2Color.BLACK);
 		manip.arc(true,manip.getPlace(),manip.getTransition());
 
-		manip.place(name+"OKshare",x + 3*tailleauto/4,b+13*ecart,CSS2Color.ORANGE,false);
+		manip.place(name+"OKshare",x + 3*tailleauto/4,b+12*ecart,CSS2Color.ORANGE,false);
 		oKshare = manip.getPlace();
 		manip.arc(true,oKshare,isinsert);
 		manip.place(name+"NOshare",x-2*ecart+3*tailleauto/4,b+10*ecart,CSS2Color.ORANGE,false);
@@ -173,20 +173,20 @@ public class AutomateNode {
 				placescomm[j] = manip.getPlace();
 				
 				manip.arc(false,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"Gestion"+j,x + tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE);
+				manip.transition(name+"Gestion"+j,x + tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150,CSS2Color.BLUE);
 				gestion[j] = manip.getTransition();
 				
 				manip.arc(true,estinsere,manip.getTransition());
 				manip.arc(false,estinsere,manip.getTransition());
-				manip.place(name+"GiveAnswer"+j,x-ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE,false);
+				manip.place(name+"GiveAnswer"+j,x-ecart+tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150,CSS2Color.BLUE,false);
 				placescomm2[j] = manip.getPlace();
 				
 				manip.arc(false,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"SendAccept"+j,x-2*ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150,CSS2Color.BLUE);
+				manip.transition(name+"SendAccept"+j,x-2*ecart+tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150,CSS2Color.BLUE);
 				accept[j] = manip.getTransition();
 				
 				manip.arc(true,manip.getPlace(),manip.getTransition());
-				manip.transition(name+"SendRefuse"+j,x-ecart+tailleauto/4-(j)*ecart, b+13*ecart+(j+1)*150-ecart,CSS2Color.BLUE);
+				manip.transition(name+"SendRefuse"+j,x-ecart+tailleauto/4+(j)*ecart, b+11*ecart+(j+1)*150-ecart,CSS2Color.BLUE);
 				refus[j] = manip.getTransition();
 				
 				manip.arc(true,manip.getPlace(),manip.getTransition());

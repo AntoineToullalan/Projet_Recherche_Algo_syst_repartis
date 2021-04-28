@@ -2,9 +2,9 @@
 \newcommand\ModelDescription[0]{ 
 A node to insert is a place with a token.\\
 The model of a node insertion in a CAN network is divided into an insertion in an empty CAN and an insertion in a non empty CAN. To do so, we use a counter place and a place with a token to check the CAN network status.\\
-The insertion in an empty CAN can be achieved without any constraint. Once the insertion done, the counter place takes one more token.\\
+The insertion in an empty CAN follows a straight path and can be achieved without any constraint. Once the insertion done, the counter place takes one more token.\\
 On the other hand, the insertion in a non empty CAN leads to an "AskSharing" place. At this point, the node has to ask an other node to share its space in the CAN. A node can send its request to one inserted node only.\\
-If N is the number of nodes to insert, a node can choose one inserted node among all other nodes. This is why we have N-1 possible paths to ask a request. And for the same reason, we also have N-1 paths for entering answer of the request.\\
+If N is the number of nodes to insert, a node can choose one inserted node among all others. This is why we have N-1 possible paths to ask a request. And for the same reason, we also have N-1 paths for entering answer of the request.\\
 We have to note that this model uses a multi-stride and sequential functioning on this part of the process.\\
 The answer may be an acceptation -so the node will be inserted- or a denial -the node can retry its insertion by repeating the process. \\
 
