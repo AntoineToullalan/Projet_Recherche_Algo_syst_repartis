@@ -1,4 +1,4 @@
-package multiplesextensionleafSet;
+package multiplesextensionleafset;
 import fr.lip6.move.pnml.framework.utils.exception.InvalidIDException;
 import fr.lip6.move.pnml.framework.utils.exception.VoidRepositoryException;
 

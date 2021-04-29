@@ -1,4 +1,4 @@
-package multiplesextensionleafSet;
+package multiplesextensionleafset;
 import java.io.File;
 import java.io.IOException;
 import fr.lip6.move.pnml.ptnet.hlapi.PetriNetDocHLAPI;
@@ -18,10 +18,11 @@ public class AutomateNode {
 	private int num,size,x,y,master,nb_breakdown;
 	private String name;
 	private PNMLManipulation manip;
-	private PlaceHLAPI PrincipalNode,IsMaster,p1,p2,p3,p4;
+	private PlaceHLAPI PrincipalNode,IsMaster;
+	private ArrayList<PlaceHLAPI> p1,p2,p3,p4;
 	private TransitionHLAPI brokDown,newMaster,detectNewMaster;
 	private Hashtable<String,TransitionHLAPI> transition1,transition2;
-	private ArrayList<TransitionHLAPI> transition3Left,transition3Right,transition4Left,transition4Right,transition5Left,transition5Right;
+	private ArrayList<TransitionHLAPI>[] transition3Left,transition3Right,transition4Left,transition4Right,transition5Left,transition5Right;
 	
 	//=========================================================================
 	//transition1,transition2,transition3Left,transition3Right,transition4Left,
@@ -37,14 +38,26 @@ public class AutomateNode {
 		this.y=y;
 		this.nb_breakdown=nb_breakdown;
 		this.manip=manip;
+		p1=new ArrayList<PlaceHLAPI>();
+		p2=new ArrayList<PlaceHLAPI>();
+		p3=new ArrayList<PlaceHLAPI>();
+		p4=new ArrayList<PlaceHLAPI>();
 		transition1=new Hashtable<String,TransitionHLAPI>();
 		transition2=new Hashtable<String,TransitionHLAPI>();
-		transition3Left=new ArrayList<TransitionHLAPI>();
-		transition3Right=new ArrayList<TransitionHLAPI>();
-		transition4Left=new ArrayList<TransitionHLAPI>();
-		transition4Right=new ArrayList<TransitionHLAPI>();
-		transition5Left=new ArrayList<TransitionHLAPI>();
-		transition5Right=new ArrayList<TransitionHLAPI>();
+		transition3Left=new ArrayList[nb_breakdown];
+		transition3Right=new ArrayList[nb_breakdown];
+		transition4Left=new ArrayList[nb_breakdown];
+		transition4Right=new ArrayList[nb_breakdown];
+		transition5Left=new ArrayList[nb_breakdown];
+		transition5Right=new ArrayList[nb_breakdown];
+		for(int i=0;i<nb_breakdown;i++) {
+			transition3Left[i]=new ArrayList<TransitionHLAPI>();
+			transition3Right[i]=new ArrayList<TransitionHLAPI>();
+			transition4Left[i]=new ArrayList<TransitionHLAPI>();
+			transition4Right[i]=new ArrayList<TransitionHLAPI>();
+			transition5Left[i]=new ArrayList<TransitionHLAPI>();
+			transition5Right[i]=new ArrayList<TransitionHLAPI>();
+		}
 
 	}
 	
@@ -65,6 +78,7 @@ public class AutomateNode {
 		manip.arc(false,manip.getPlace(),brokDown);
 		int y_init=y+100;
 		int j=0;
+		
 		if(size>4 && num==size/2+1) {
 			manip.transition(name+"DetectsTheBreakDownOfTheNodeMaster",x+(master-1)*300,y-100,CSS2Color.GRAY);
 			newMaster=manip.getTransition();
@@ -73,33 +87,36 @@ public class AutomateNode {
 			manip.transition(name+"DetectsTheBreakDownOfTheNodeMaster",x+(master-1)*300,y-100,CSS2Color.GRAY);
 			newMaster=manip.getTransition();
 		}
+		
 		for(int i=0;i<size;i++) {
 			if(i!=num) {
 				buildBranch(x+j*300,y_init,i);
 				j+=1;
 			}			
 		}
-		manip.place("RequestOf"+name+"IsSentToLx",x,y+1200,CSS2Color.RED,false);
-		p1=manip.getPlace();
-		manip.place("LeafSetOfLxIsSentTo"+name,x,y+1300,CSS2Color.RED,false);
-		p2=manip.getPlace();
-		manip.place("RequestOf"+name+"IsSentToRx",x+(size-2)*300,y+1200,CSS2Color.RED,false);
-		p3=manip.getPlace();
-		manip.place("LeafSetOfRxIsSentTo"+name,x+(size-2)*300,y+1300,CSS2Color.RED,false);
-		p4=manip.getPlace();
-		for(int i=0;i<transition3Left.size();i++) {
-			manip.arc(false,p1,transition3Left.get(i));
+		for(int k=0;k<nb_breakdown;k++) {
+			manip.place("RequestOf"+name+"IsSentToLx"+k,x+k*300,y+1200,CSS2Color.RED,false);
+			p1.add(manip.getPlace());
+			manip.place("LeafSetOfLx"+k+"IsSentTo"+name,x+k*300,y+1300,CSS2Color.RED,false);
+			p2.add(manip.getPlace());
+			manip.place("RequestOf"+name+"IsSentToRx"+k,x+(size-2+k)*300,y+1200,CSS2Color.RED,false);
+			p3.add(manip.getPlace());
+			manip.place("LeafSetOfRx"+k+"IsSentTo"+name,x+(size-2+k)*300,y+1300,CSS2Color.RED,false);
+			p4.add(manip.getPlace());
+			for(int i=0;i<transition3Left[k].size();i++) {
+				manip.arc(false,p1.get(k),transition3Left[k].get(i));
+			}
+			for(int i=0;i<transition3Right[k].size();i++) {
+				manip.arc(false,p3.get(k),transition3Right[k].get(i));
+			}
+			for(int i=0;i<transition4Left[k].size();i++) {
+				manip.arc(true,p2.get(k),transition4Left[k].get(i));
+			}
+			for(int i=0;i<transition4Right[k].size();i++) {
+				manip.arc(true,p4.get(k),transition4Right[k].get(i));
+			}
 		}
-		for(int i=0;i<transition3Right.size();i++) {
-			manip.arc(false,p3,transition3Right.get(i));
-		}
-		for(int i=0;i<transition4Left.size();i++) {
-			manip.arc(true,p2,transition4Left.get(i));
-		}
-		for(int i=0;i<transition4Right.size();i++) {
-			manip.arc(true,p4,transition4Right.get(i));
-		}
-		
+			
 	}
 	
 	//=========================================================================
@@ -142,76 +159,85 @@ public class AutomateNode {
 				manip.arc(false,manip.getPlace(),newMaster);
 			}
 		}
+		
 		namePlace=name+"ManageTheBreakDownOf"+nameBranch;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLACK,false);
+		PlaceHLAPI origine=manip.getPlace();
 		yBranch+=100;
 		manip.arc(false);
+		
+		namePlace=nameBranch+"FailureProcessedBy"+name;
+		manip.place(namePlace,xBranch,yBranch+2000,CSS2Color.BLUE,false);
+		PlaceHLAPI fin = manip.getPlace();
 		
 		String LxOrRx="Lx";
 		boolean lx=true;
-		if(iBranch<master) {
-			LxOrRx="Lx";
-		}
-		else if(iBranch>master) {
-			LxOrRx="Rx";
-			lx=false;
-		}
-		else {
-			if(num<master) {
+		
+		for(int i=0;i<nb_breakdown;i++) {
+			if(iBranch<master) {
 				LxOrRx="Lx";
 			}
-			else if(num>master) {
+			else if(iBranch>master) {
 				LxOrRx="Rx";
 				lx=false;
 			}
-		}
-		nameTransition=name+"AsksItsLeafSetTo"+LxOrRx+"ToReplace"+nameBranch;
-		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
-		yBranch+=100;
-		manip.arc(true);
-		if(lx) {
-			transition3Left.add(manip.getTransition());
-		}
-		else {
-			transition3Right.add(manip.getTransition());
-		}
-		
-		namePlace=name+"HasAskedItsLeafSetTo"+LxOrRx+"ToReplace"+nameBranch;
-		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
-		yBranch+=100;
-		manip.arc(false);
-		
-		nameTransition=name+"ReceiveTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
-		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLACK);
-		yBranch+=100;
-		manip.arc(true);
-		if(lx) {
-			transition4Left.add(manip.getTransition());
-		}
-		else {
-			transition4Right.add(manip.getTransition());
-		}
-		
-		namePlace=name+"HasTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
-		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLACK,false);
-		yBranch+=100;
-		manip.arc(false);
-		
-		nameTransition=name+"SelectsANodeOfTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
-		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
-		yBranch+=100;
-		manip.arc(true);
+			else {
+				if(num<master) {
+					LxOrRx="Lx";
+				}
+				else if(num>master) {
+					LxOrRx="Rx";
+					lx=false;
+				}
+			}
+			LxOrRx=LxOrRx+i;
+			nameTransition=name+"AsksItsLeafSetTo"+LxOrRx+"ToReplace"+nameBranch;
+			manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
+			yBranch+=100;
+			manip.arc(true,origine,manip.getTransition());
+			if(lx) {
+				transition3Left[i].add(manip.getTransition());
+			}
+			else {
+				transition3Right[i].add(manip.getTransition());
+			}
+			
+			namePlace=name+"HasAskedItsLeafSetTo"+LxOrRx+"ToReplace"+nameBranch;
+			manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
+			yBranch+=100;
+			manip.arc(false);
+			
+			nameTransition=name+"ReceiveTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
+			manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLACK);
+			yBranch+=100;
+			manip.arc(true);
+			if(lx) {
+				transition4Left[i].add(manip.getTransition());
+			}
+			else {
+				transition4Right[i].add(manip.getTransition());
+			}
+			
+			namePlace=name+"HasTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
+			manip.place(namePlace,xBranch,yBranch,CSS2Color.BLACK,false);
+			yBranch+=100;
+			manip.arc(false);
+			
+			nameTransition=name+"SelectsANodeOfTheLeafSetOf"+LxOrRx+"ToReplace"+nameBranch;
+			manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
+			yBranch+=100;
+			manip.arc(true);
 
-		if(lx) {
-			transition5Left.add(manip.getTransition());
-		}
-		else {
-			transition5Right.add(manip.getTransition());
+			if(lx) {
+				transition5Left[i].add(manip.getTransition());
+			}
+			else {
+				transition5Right[i].add(manip.getTransition());
+			}
+			
+			manip.arc(false,fin,manip.getTransition());
 		}
 		
-		namePlace=nameBranch+"FailureProcessedBy"+name;
-		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
-		manip.arc(false);
 	}
 	public TransitionHLAPI getBreaksDown() {
 		return brokDown;
@@ -228,14 +254,20 @@ public class AutomateNode {
 	public Hashtable<String,TransitionHLAPI> getTabGetTheRight() {
 		return transition2;
 	}
-	public ArrayList<TransitionHLAPI> getTabSelectANodeofLx() {
-		return transition5Left;
+	public ArrayList<TransitionHLAPI> getTabSelectANodeofLx(int i) {
+		return transition5Left[i];
 	}
-	public ArrayList<TransitionHLAPI> getTabSelectANodeofRx() {
-		return transition5Right;
+	public ArrayList<TransitionHLAPI> getTabSelectANodeofRx(int i) {
+		return transition5Right[i];
 	}
-	public PlaceHLAPI[] getCommWithExtremity() {
-		PlaceHLAPI[] res ={p1,p2,p3,p4};
+	public ArrayList<TransitionHLAPI> getExtLeft(int i) {
+		return transition3Left[i];
+	}
+	public ArrayList<TransitionHLAPI> getExtRight(int i) {
+		return transition3Right[i];
+	}
+	public ArrayList<PlaceHLAPI>[] getCommWithExtremity() {
+		ArrayList[] res ={p1,p2,p3,p4};
 		return res;
 	}
 }

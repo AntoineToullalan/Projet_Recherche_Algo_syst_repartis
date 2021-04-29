@@ -1,4 +1,4 @@
-package multiplesextensionleafSet;
+package multiplesextensionleafset;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,9 +42,9 @@ public class LeafSet {
 	//du LeafSet avec buildExtremityLeafSet puis on met en relation ces automates
 	// =========================================================================
 	public void buildAllLeafSet() {
-		PlaceHLAPI[] placeCommExtremity;
-		PlaceHLAPI p1_Lx,p2_Lx,p1_Rx,p2_Rx;
-		Hashtable<String,TransitionHLAPI>[] extComm;
+		ArrayList<PlaceHLAPI>[] placeCommExtremity;
+		ArrayList<PlaceHLAPI> p1_Lx,p2_Lx,p1_Rx,p2_Rx;
+		Hashtable<String,TransitionHLAPI>[][] extComm;
 		
 		buildAutomatesNodes();
 		buildExtremityLeafSet();
@@ -56,12 +56,30 @@ public class LeafSet {
 			p2_Lx=placeCommExtremity[1];
 			p1_Rx=placeCommExtremity[2];
 			p2_Rx=placeCommExtremity[3];
-			
-			manip.arc(true,p1_Lx,extComm[0].get("Node"+i));
-			manip.arc(false,p2_Lx,extComm[1].get("Node"+i));
-			manip.arc(true,p1_Rx,extComm[2].get("Node"+i));
-			manip.arc(false,p2_Rx,extComm[3].get("Node"+i));
-
+			for(int j=0;j<nb_breakdown;j++) {
+				manip.arc(true,p1_Lx.get(j),extComm[0][j].get("Node"+i));
+				manip.arc(false,p2_Lx.get(j),extComm[1][j].get("Node"+i));
+				manip.arc(true,p1_Rx.get(j),extComm[2][j].get("Node"+i));
+				manip.arc(false,p2_Rx.get(j),extComm[3][j].get("Node"+i));
+			}
+		}
+		PlaceHLAPI placeLeft;
+		PlaceHLAPI placeRight;
+		ArrayList<TransitionHLAPI> transitionsLeft;
+		ArrayList<TransitionHLAPI> transitionsRight;
+		for(int i=0;i<nb_breakdown;i++) {
+			placeLeft=extremite.getCommNodeBreakLeft(i);
+			placeRight=extremite.getCommNodeBreakRight(i);
+			for(int j=0;j<size;j++) {
+				transitionsLeft=automatesNode[j].getExtLeft(i);
+				transitionsRight=automatesNode[j].getExtRight(i);
+				for(int k=0;k<transitionsLeft.size();k++) {
+					manip.arc(true,placeLeft,transitionsLeft.get(k));
+				}
+				for(int k=0;k<transitionsRight.size();k++) {
+					manip.arc(true,placeLeft,transitionsRight.get(k));
+				}
+			}
 		}
 		
 	}
@@ -139,32 +157,40 @@ public class LeafSet {
 	//noeuds du LeafSet
 	// =========================================================================
 	public void buildExtremityLeafSet() {
-		extremite=new ExtremityLeafSet(x,y+2000,size,nb_breakdown,manip);
-		extremite.buildExtremity();
-		
-		manip.place("ANodeFromTheLeafSetOfLxIsACtiveInTheLeafSet",size*300,y+1800,CSS2Color.RED,false);
-		PlaceHLAPI LxInTheLeafSet=manip.getPlace();
-		manip.arc(true,LxInTheLeafSet,extremite.getActiveInLeafSetLeft());
-		
-		manip.place("ANodeFromTheLeafSetOfRxIsACtiveInTheLeafSet",x-size*300,y+1800,CSS2Color.RED,false);
-		PlaceHLAPI RxInTheLeafSet=manip.getPlace();
-		manip.arc(true,RxInTheLeafSet,extremite.getActiveInLeafSetRight());
-		
+		PlaceHLAPI[] LxInTheLeafSet=new PlaceHLAPI[nb_breakdown];
+		PlaceHLAPI[] RxInTheLeafSet=new PlaceHLAPI[nb_breakdown];
 		ArrayList<TransitionHLAPI> tab;
 		TransitionHLAPI tmp;
 		AutomateNode automate;
+		
+		extremite=new ExtremityLeafSet(x,y+2000,size,nb_breakdown,manip);
+		extremite.buildExtremity();
+		for(int i=0;i<nb_breakdown;i++) {
+			manip.place("ANodeFromTheLeafSetOfLx"+i+"IsACtiveInTheLeafSet",(size+i)*300,y+1800,CSS2Color.RED,false);
+			LxInTheLeafSet[i]=manip.getPlace();
+			manip.arc(true,LxInTheLeafSet[i],extremite.getActiveInLeafSetLeft(i));
+		}
+		for(int i=0;i<nb_breakdown;i++) {
+			manip.place("ANodeFromTheLeafSetOfRx"+i+"IsACtiveInTheLeafSet",x-(size+i)*300,y+1800,CSS2Color.RED,false);
+			RxInTheLeafSet[i]=manip.getPlace();
+			manip.arc(true,RxInTheLeafSet[i],extremite.getActiveInLeafSetRight(i));
+		}
+
 		for(int i=0;i<size;i++) {
 			automate=automatesNode[i];
-			tab=automate.getTabSelectANodeofLx();
-			for(int j=0;j<tab.size();j++) {
-				tmp=tab.get(j);
-				manip.arc(false,LxInTheLeafSet,tmp);
+			for(int iBranche=0;iBranche<nb_breakdown;iBranche++) {
+				tab=automate.getTabSelectANodeofLx(iBranche);
+				for(int j=0;j<tab.size();j++) {
+					tmp=tab.get(j);
+					manip.arc(false,LxInTheLeafSet[iBranche],tmp);
+				}
+				tab=automate.getTabSelectANodeofRx(iBranche);
+				for(int j=0;j<tab.size();j++) {
+					tmp=tab.get(j);
+					manip.arc(false,RxInTheLeafSet[iBranche],tmp);
+				}
 			}
-			tab=automate.getTabSelectANodeofRx();
-			for(int j=0;j<tab.size();j++) {
-				tmp=tab.get(j);
-				manip.arc(false,RxInTheLeafSet,tmp);
-			}
+			
 		}
 
 
