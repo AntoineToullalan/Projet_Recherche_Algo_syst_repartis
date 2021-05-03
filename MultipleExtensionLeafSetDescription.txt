@@ -1,0 +1,15 @@
+This Petri net modelizes the extension of a LeafSet in a pastry net. A pastry net is a Distributed Hash Table where each node contains certain structures among which a LeafSet. Each object to store has an identifier, which determines on which node it is stored : it is stored on the Node with the closest identifier to the identifier of the object, in the LeafSet we call this Node the Node « Master ».
+A LeafSet is linked to an object because it is composed of the Node with the closest identifier to the one of the object : there is the Node « master » but also the node with identifier « on the left » of the node master (with smaller identifiers than the master’s one) and node « on the right » of the node master (with greater identifiers than the master’s one). 
+When a node N of the leafSet L breaks down, another node of L detects it and notify to the other nodes that this crash is being managed so no other Node manage this crash. It asks the LeafSet Lbis of the Node on the left (if N is at the left of the Node Master) or right Extremity (if N is at the right of the Node Master) of L, a node of Lbis is chosen to replace N. 
+
+We consider that :
+-the Petri net has a « BreakDown Reservoir » which modelizes the event of crash. The Petri net modelizes the extension of the LeafSet for multiple crashs so the reservoir can have several tokens but the number of tokens has to be inferior to the size of the LeafSet.     
+-The crash is handled by one Node, this node is the first one of the LeafSet to detect the crash.
+-if the node which breaks down is the Node Master, then the LeafSet of either the right or left extremity is chosen according to the side of the Node that has detected the crash.
+-In the LeafSet of size S, it has S+1 nodes with the node master, S has to be pair so that there are as much node on the left side and the right side.
+-When a Node manage a crash, it cannot crash until it has finished.
+
+Initially this model is set to support one crash, the initial marking of this model has been modified to make its reachability graph significantly more complex.
+
+This model has one parameter which is the Size S of the LeafSet (it will have S+1 nodes).
+
