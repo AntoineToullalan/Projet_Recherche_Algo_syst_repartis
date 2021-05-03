@@ -8,15 +8,15 @@ public class Main {
 	public static void main (String[] args) {
 		
 		int size;
-		int nb_breakdown;
+		int nb_Crash;
 		String nameFile;
 		try {
 			//on récupère l'argument : size
 			size  = Integer.parseInt(args[0]);
-			nb_breakdown = Integer.parseInt(args[1]);
+			nb_Crash = Integer.parseInt(args[1]);
 			nameFile=args[2];
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println("Usage: ./cliser_os size nb_breakdown");			
+			System.out.println("Usage: ./cliser_os size nb_Crash");			
 			return;
 		}
 		
@@ -25,7 +25,7 @@ public class Main {
 		//on créer une instance de PNMLManipulation 
 		PNMLManipulation manip = new PNMLManipulation(400,400);
 		//on crée un réseau de petri
-		LeafSet leafset = new LeafSet(size+1,nb_breakdown,manip);
+		LeafSet leafset = new LeafSet(size+1,nb_Crash,manip);
 		leafset.buildAllLeafSet();
 		//on génère le fichier pnml contenant le réseau construit
 		manip.generate_file(nameFile);

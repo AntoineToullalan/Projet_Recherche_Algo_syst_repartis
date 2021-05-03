@@ -17,12 +17,12 @@ import java.lang.Math;
 //noeud dans un LeafSet.
 //=========================================================================
 public class AutomateNode {
-	private int num,size,x,y,master,nb_breakdown;
+	private int num,size,x,y,master,nb_Crash;
 	private String name;
 	private PNMLManipulation manip;
-	private PlaceHLAPI PrincipalNode,IsMaster,notifyNOTMaster,temp3,temp2,temp1;
+	private PlaceHLAPI PrincipalNode,IsMaster,notifyNOTMaster,temp3,temp2,temp1,isThereMaster;
 	private ArrayList<PlaceHLAPI> p1,p2,p3,p4;
-	private TransitionHLAPI brokDown,newMaster,detectNewMaster;
+	private TransitionHLAPI brokDown,newMaster,detectNewMaster,tmpJPC;
 	private Hashtable<String,TransitionHLAPI> transition1,transition2;
 	private Hashtable<Integer,TransitionHLAPI> inputX1,inputX2;
 	private Hashtable<Integer,ArrayList> inputX3;
@@ -34,14 +34,14 @@ public class AutomateNode {
 	//transition4Right,transition5Left,transition5Right servent à conserver les transitions qui
 	//vont servir à communiquer entre transitions.
 	//=========================================================================
-	public AutomateNode(int x,int y,int num,int size,int nb_breakdown,PNMLManipulation manip) {
+	public AutomateNode(int x,int y,int num,int size,int nb_Crash,PNMLManipulation manip) {
 		this.num=num;
 		master=size/2;
 		name="Node"+num;
 		this.size=size;
 		this.x=x;
 		this.y=y;
-		this.nb_breakdown=nb_breakdown;
+		this.nb_Crash=nb_Crash;
 		this.manip=manip;
 		p1=new ArrayList<PlaceHLAPI>();
 		p2=new ArrayList<PlaceHLAPI>();
@@ -52,13 +52,13 @@ public class AutomateNode {
 		inputX1=new Hashtable<Integer,TransitionHLAPI>();
 		inputX2=new Hashtable<Integer,TransitionHLAPI>();
 		inputX3=new Hashtable<Integer,ArrayList>();
-		transition3Left=new ArrayList[nb_breakdown];
-		transition3Right=new ArrayList[nb_breakdown];
-		transition4Left=new ArrayList[nb_breakdown];
-		transition4Right=new ArrayList[nb_breakdown];
-		transition5Left=new ArrayList[nb_breakdown];
-		transition5Right=new ArrayList[nb_breakdown];
-		for(int i=0;i<nb_breakdown;i++) {
+		transition3Left=new ArrayList[nb_Crash];
+		transition3Right=new ArrayList[nb_Crash];
+		transition4Left=new ArrayList[nb_Crash];
+		transition4Right=new ArrayList[nb_Crash];
+		transition5Left=new ArrayList[nb_Crash];
+		transition5Right=new ArrayList[nb_Crash];
+		for(int i=0;i<nb_Crash;i++) {
 			transition3Left[i]=new ArrayList<TransitionHLAPI>();
 			transition3Right[i]=new ArrayList<TransitionHLAPI>();
 			transition4Left[i]=new ArrayList<TransitionHLAPI>();
@@ -100,10 +100,21 @@ public class AutomateNode {
 		manip.place(namePlace,x-300,y,CSS2Color.RED,num==master);
 		IsMaster=manip.getPlace();
 		
+		nameTransition=name+"InformsHeIsTheNodeMaster";
+		manip.transition(nameTransition, x,y-100, CSS2Color.BLACK);
+		tmpJPC=manip.getTransition();
+		manip.arc(false);
+		manip.arc(true);
+		
+		namePlace=name+"IsThereANodeMaster";
+		manip.place(namePlace, x,y-200,CSS2Color.BLACK,false);
+		manip.arc(true);
+		isThereMaster=manip.getPlace();
+		
 		nameTransition=name+"IsBecomingTheNewNodeMaster";
 		manip.transition(nameTransition, x+300,y+300, CSS2Color.BLACK);
 		TransitionHLAPI tmp=manip.getTransition();
-		manip.arc(false);
+		manip.arc(false,IsMaster,manip.getTransition());
 		
 		namePlace=name+"IsNOTTheNodeMaster";
 		manip.place(namePlace,x+300,y+1000,CSS2Color.RED,num!=master);
@@ -123,7 +134,7 @@ public class AutomateNode {
 		}	
 		
 		
-		for(int k=0;k<nb_breakdown;k++) {
+		for(int k=0;k<nb_Crash;k++) {
 			manip.place("RequestOf"+name+"IsSentToLx"+k,x+k*300,y+1200,CSS2Color.RED,false);
 			p1.add(manip.getPlace());
 			manip.place("LeafSetOfLx"+k+"IsSentTo"+name,x+k*300,y+1300,CSS2Color.RED,false);
@@ -199,44 +210,41 @@ public class AutomateNode {
 	private void buildBranch(int xBranch,int yBranch,int iBranch) {
 		String nameBranch="Node"+iBranch;
 		String namePlace,nameTransition;
-		TransitionHLAPI detectsBreakDown;
+		TransitionHLAPI detectsCrash;
 		ArrayList<Integer> warNode=WarnNodeMaster(iBranch);
 
-		
-		nameTransition=name+"DetectsBreakDownOf"+nameBranch;
+		nameTransition=name+"DetectsCrashOf"+nameBranch;
 		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
-		detectsBreakDown=manip.getTransition();
+		detectsCrash=manip.getTransition();
 		transition1.put(nameBranch,manip.getTransition());
 		yBranch+=100;
-		
+		manip.arc(false,isThereMaster,manip.getTransition());
 		manip.arc(true,PrincipalNode,manip.getTransition());
-		
-		namePlace=name+"WantsToManageTheBreakDownOf"+nameBranch;
+		manip.arc(false,PrincipalNode,manip.getTransition());
+
+		namePlace=name+"WantsToManageTheCrashOf"+nameBranch;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLUE,false);
 		yBranch+=100;
 		manip.arc(false);
 		
-		nameTransition=name+"GetTheRightToManageTheBreakDownOf"+nameBranch;
+		nameTransition=name+"GetTheRightToManageTheCrashOf"+nameBranch;
 		manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLACK);
 		transition2.put(nameBranch,manip.getTransition());
 		yBranch+=100;
 		manip.arc(true);
 		
-		namePlace=name+"ManageTheBreakDownOf"+nameBranch;
+		namePlace=name+"ManageTheCrashOf"+nameBranch;
 		manip.place(namePlace,xBranch,yBranch,CSS2Color.BLACK,false);
 		PlaceHLAPI origine=manip.getPlace();
 		yBranch+=100;
 		manip.arc(false);
 		
-		namePlace=nameBranch+"FailureProcessedBy"+name;
-		manip.place(namePlace,xBranch,yBranch+2000,CSS2Color.BLUE,false);
-		PlaceHLAPI fin = manip.getPlace();
 		
 		//début de la gestion de l'élection du nouveau noeud maitre
 		
-		namePlace=name+"HasDetectedBreakDownOf"+nameBranch;
+		namePlace=name+"HasDetectedCrashOf"+nameBranch;
 		manip.place(namePlace, xBranch, yBranch, CSS2Color.BLACK, false);
-		manip.arc(false, manip.getPlace(), detectsBreakDown);
+		manip.arc(false, manip.getPlace(), detectsCrash);
 		
 		nameTransition=name+"DoesntSeekANewMasterToReplace"+nameBranch;
 		manip.transition(nameTransition, xBranch-200, yBranch+300, CSS2Color.BLACK);
@@ -272,12 +280,12 @@ public class AutomateNode {
 		}
 		
 		inputX3.put(iBranch,inputX3bis);
-		manip.arc(false,IsMaster,t);
-
+		manip.arc(false,temp3,t);
+		
 		String LxOrRx="Lx";
 		boolean lx=true;
 		
-		for(int i=0;i<nb_breakdown;i++) {
+		for(int i=0;i<nb_Crash;i++) {
 			if(iBranch<master) {
 				LxOrRx="Lx";
 			}
@@ -331,7 +339,6 @@ public class AutomateNode {
 			manip.transition(nameTransition,xBranch,yBranch,CSS2Color.BLUE);
 			yBranch+=100;
 			manip.arc(true);
-			manip.arc(false,PrincipalNode,manip.getTransition());
 			
 			if(lx) {
 				transition5Left[i].add(manip.getTransition());
@@ -340,14 +347,13 @@ public class AutomateNode {
 				transition5Right[i].add(manip.getTransition());
 			}
 			
-			manip.arc(false,fin,manip.getTransition());
 		}
 		
 	}
 	public TransitionHLAPI getBreaksDown() {
 		return brokDown;
 	}
-	public Hashtable<String,TransitionHLAPI> getTabDetectsBreakDown() {
+	public Hashtable<String,TransitionHLAPI> getTabDetectsCrash() {
 		return transition1;
 	}
 	public Hashtable<String,TransitionHLAPI> getTabGetTheRight() {
@@ -395,5 +401,8 @@ public class AutomateNode {
 	public ArrayList<PlaceHLAPI>[] getCommWithExtremity() {
 		ArrayList[] res ={p1,p2,p3,p4};
 		return res;
+	}
+	public TransitionHLAPI getTmpJPC() {
+		return tmpJPC;
 	}
 }

@@ -14,18 +14,18 @@ import fr.lip6.move.pnml.ptnet.CSS2Color;
 //ExtremityLeafSet construit les automates de Gx1, Dx1,Gx2, Dx2...
 //=========================================================================
 public class ExtremityLeafSet {
-	private int x,y,size,nb_breakdown;
+	private int x,y,size,nb_Crash;
 	private PNMLManipulation manip;
 	private PlaceHLAPI principalNode;
 	private PlaceHLAPI[] CommNodeBreakLeft,CommNodeBreakRight;
 	private TransitionHLAPI[] activeInLeafSetLeft,activeInLeafSetRight;
 	private Hashtable<String,TransitionHLAPI>[] transitionLx1,transitionLx2,transitionRx1,transitionRx2;
-	public ExtremityLeafSet(int x,int y,int size,int nb_breakdown,PNMLManipulation manip) {
-		transitionLx1=new Hashtable[nb_breakdown];
-		transitionLx2=new Hashtable[nb_breakdown];
-		transitionRx1=new Hashtable[nb_breakdown];
-		transitionRx2=new Hashtable[nb_breakdown];
-		for(int i=0;i<nb_breakdown;i++) {
+	public ExtremityLeafSet(int x,int y,int size,int nb_Crash,PNMLManipulation manip) {
+		transitionLx1=new Hashtable[nb_Crash];
+		transitionLx2=new Hashtable[nb_Crash];
+		transitionRx1=new Hashtable[nb_Crash];
+		transitionRx2=new Hashtable[nb_Crash];
+		for(int i=0;i<nb_Crash;i++) {
 			transitionLx1[i]=new Hashtable<String,TransitionHLAPI>();
 			transitionLx2[i]=new Hashtable<String,TransitionHLAPI>();
 			transitionRx1[i]=new Hashtable<String,TransitionHLAPI>();
@@ -35,24 +35,24 @@ public class ExtremityLeafSet {
 		this.y=y;
 		this.size=size;
 		this.manip=manip;
-		this.nb_breakdown=nb_breakdown;
-		activeInLeafSetLeft=new TransitionHLAPI[nb_breakdown];
-		activeInLeafSetRight=new TransitionHLAPI[nb_breakdown];
-		CommNodeBreakLeft=new PlaceHLAPI[nb_breakdown];
-		CommNodeBreakRight=new PlaceHLAPI[nb_breakdown];
+		this.nb_Crash=nb_Crash;
+		activeInLeafSetLeft=new TransitionHLAPI[nb_Crash];
+		activeInLeafSetRight=new TransitionHLAPI[nb_Crash];
+		CommNodeBreakLeft=new PlaceHLAPI[nb_Crash];
+		CommNodeBreakRight=new PlaceHLAPI[nb_Crash];
 	}
 	
 	public void buildExtremity() {
 		int y_init=y;
 		int x_init=x;
 		x=(size/2)*300;
-		for(int i=0;i<nb_breakdown;i++) {
+		for(int i=0;i<nb_Crash;i++) {
 			LDx(true,i);
 			x+=(size*300);
 		}
 		x=x_init-size*300;
 		y=y_init;
-		for(int i=0;i<nb_breakdown;i++) {
+		for(int i=0;i<nb_Crash;i++) {
 			LDx(false,i);
 			x-=(size*300);
 		}

@@ -18,23 +18,27 @@ import java.util.Iterator;
 // =========================================================================
 public class LeafSet {
 	private PNMLManipulation manip;
-	private int x,y,size,x_centre,nb_breakdown;
-	private PlaceHLAPI reservoir;
+	private int x,y,size,x_centre,nb_Crash;
+	private PlaceHLAPI reservoir,noCrash,masterExists;
 	private AutomateNode[] automatesNode;
 	private PlaceHLAPI[][] placesCommNodes;
 	private ExtremityLeafSet extremite;
 	
-	public LeafSet(int size,int nb_breakdown,PNMLManipulation manip) {
+	public LeafSet(int size,int nb_Crash,PNMLManipulation manip) {
 		this.manip=manip;
 		this.size=size;
-		this.nb_breakdown=nb_breakdown;
+		this.nb_Crash=nb_Crash;
 		x=700;
 		y=700;
 		x_centre=x+(size*(size-1)*300)/2;
-		manip.place("BreakDownReservoir",x_centre,200,CSS2Color.GREEN,nb_breakdown);
+		manip.place("CrashReservoir",x_centre,200,CSS2Color.GREEN,nb_Crash);
 		reservoir=manip.getPlace();
+		manip.place("NoCrashIsHappening",x_centre-100,100,CSS2Color.GREEN,true);
+		noCrash=manip.getPlace();
 		automatesNode=new AutomateNode[size];
 		placesCommNodes=new PlaceHLAPI[size][2];
+		manip.place("ThereIsAMasterInTheLeafSet",x_centre,400,CSS2Color.RED,false);
+		masterExists=manip.getPlace();
 		
 	}
 	
@@ -63,11 +67,13 @@ public class LeafSet {
 		
 		for(int i=0;i<size;i++) {
 			placeCommExtremity=automatesNode[i].getCommWithExtremity();
+			manip.arc(false,masterExists,automatesNode[i].getTmpJPC());
+			
 			p1_Lx=placeCommExtremity[0];
 			p2_Lx=placeCommExtremity[1];
 			p1_Rx=placeCommExtremity[2];
 			p2_Rx=placeCommExtremity[3];
-			for(int j=0;j<nb_breakdown;j++) {
+			for(int j=0;j<nb_Crash;j++) {
 				manip.arc(true,p1_Lx.get(j),extComm[0][j].get("Node"+i));
 				manip.arc(false,p2_Lx.get(j),extComm[1][j].get("Node"+i));
 				manip.arc(true,p1_Rx.get(j),extComm[2][j].get("Node"+i));
@@ -119,7 +125,7 @@ public class LeafSet {
 		PlaceHLAPI placeRight;
 		ArrayList<TransitionHLAPI> transitionsLeft;
 		ArrayList<TransitionHLAPI> transitionsRight;
-		for(int it=0;it<nb_breakdown;it++) {
+		for(int it=0;it<nb_Crash;it++) {
 			placeLeft=extremite.getCommNodeBreakLeft(it);
 			placeRight=extremite.getCommNodeBreakRight(it);
 			for(int j=0;j<size;j++) {
@@ -146,32 +152,35 @@ public class LeafSet {
 	private void buildAutomatesNodes() {
 		//on créer les automates des noeuds
 		for(int i=0;i<size;i++) {
-			automatesNode[i]=new AutomateNode(x,y,i,size,nb_breakdown,manip);
+			automatesNode[i]=new AutomateNode(x,y,i,size,nb_Crash,manip);
 			automatesNode[i].buildAutomate();
 			manip.place("Node"+i+"DontAnswerToAnyNode",x-400,y+200,CSS2Color.RED,false);
 			placesCommNodes[i][0]=manip.getPlace();
-			manip.place("NoNodeManageTheBreakDownOfNode"+i,x-400,y+400,CSS2Color.RED,false);
+			manip.place("NoNodeManageTheCrashOfNode"+i,x-400,y+400,CSS2Color.RED,false);
 			placesCommNodes[i][1]=manip.getPlace();
 			x+=300*size;
 		}
 		
 		//on crée les connections entre les automates
-		TransitionHLAPI transitionBreakDown;
+		TransitionHLAPI transitionCrash;
 		AutomateNode automate;
-		Hashtable<String,TransitionHLAPI> tableDetectsBreakdown;
+		Hashtable<String,TransitionHLAPI> tableDetectsCrash;
 		Hashtable<String,TransitionHLAPI> tableGetTheRight;
 		for(int i=0;i<size;i++) {
 			automate=automatesNode[i];
-			transitionBreakDown=automate.getBreaksDown();
-			manip.arc(true,reservoir,transitionBreakDown);
-			manip.arc(false,placesCommNodes[i][0],transitionBreakDown);
-			manip.arc(false,placesCommNodes[i][1],transitionBreakDown);
-			tableDetectsBreakdown=automate.getTabDetectsBreakDown();
+			transitionCrash=automate.getBreaksDown();
+			manip.arc(true,reservoir,transitionCrash);
+			manip.arc(true,noCrash,transitionCrash);
+			
+			manip.arc(false,placesCommNodes[i][0],transitionCrash);
+			manip.arc(false,placesCommNodes[i][1],transitionCrash);
+			tableDetectsCrash=automate.getTabDetectsCrash();
 			tableGetTheRight=automate.getTabGetTheRight();
 			for(int j=0;j<size;j++) {
 				if(j!=i) {
-					manip.arc(true,placesCommNodes[j][0],tableDetectsBreakdown.get("Node"+j));
+					manip.arc(true,placesCommNodes[j][0],tableDetectsCrash.get("Node"+j));
 					manip.arc(true,placesCommNodes[j][1],tableGetTheRight.get("Node"+j));
+					manip.arc(true,masterExists,tableGetTheRight.get("Node"+j));
 				}	
 			}
 			
@@ -185,28 +194,30 @@ public class LeafSet {
 	//noeuds du LeafSet
 	// =========================================================================
 	private void buildExtremityLeafSet() {
-		PlaceHLAPI[] LxInTheLeafSet=new PlaceHLAPI[nb_breakdown];
-		PlaceHLAPI[] RxInTheLeafSet=new PlaceHLAPI[nb_breakdown];
+		PlaceHLAPI[] LxInTheLeafSet=new PlaceHLAPI[nb_Crash];
+		PlaceHLAPI[] RxInTheLeafSet=new PlaceHLAPI[nb_Crash];
 		ArrayList<TransitionHLAPI> tab;
 		TransitionHLAPI tmp;
 		AutomateNode automate;
 		
-		extremite=new ExtremityLeafSet(x,y+3000,size,nb_breakdown,manip);
+		extremite=new ExtremityLeafSet(x,y+3000,size,nb_Crash,manip);
 		extremite.buildExtremity();
-		for(int i=0;i<nb_breakdown;i++) {
+		for(int i=0;i<nb_Crash;i++) {
 			manip.place("ANodeFromTheLeafSetOfLx"+i+"IsACtiveInTheLeafSet",(size+i)*300,y+1800,CSS2Color.RED,false);
 			LxInTheLeafSet[i]=manip.getPlace();
 			manip.arc(true,LxInTheLeafSet[i],extremite.getActiveInLeafSetLeft(i));
+			manip.arc(false,noCrash,extremite.getActiveInLeafSetLeft(i));
 		}
-		for(int i=0;i<nb_breakdown;i++) {
+		for(int i=0;i<nb_Crash;i++) {
 			manip.place("ANodeFromTheLeafSetOfRx"+i+"IsACtiveInTheLeafSet",x-(size+i)*300,y+1800,CSS2Color.RED,false);
 			RxInTheLeafSet[i]=manip.getPlace();
 			manip.arc(true,RxInTheLeafSet[i],extremite.getActiveInLeafSetRight(i));
+			manip.arc(false,noCrash,extremite.getActiveInLeafSetRight(i));
 		}
 
 		for(int i=0;i<size;i++) {
 			automate=automatesNode[i];
-			for(int iBranche=0;iBranche<nb_breakdown;iBranche++) {
+			for(int iBranche=0;iBranche<nb_Crash;iBranche++) {
 				tab=automate.getTabSelectANodeofLx(iBranche);
 				for(int j=0;j<tab.size();j++) {
 					tmp=tab.get(j);
