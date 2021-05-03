@@ -48,7 +48,8 @@ public class LeafSet {
 		ArrayList<PlaceHLAPI> p1_Lx,p2_Lx,p1_Rx,p2_Rx;
 		Hashtable<String,TransitionHLAPI>[][] extComm;
 		Hashtable<Integer,TransitionHLAPI> hashtable1,hashtable2;
-		Hashtable<Integer,TransitionHLAPI[]> inputX3bis;
+		ArrayList<TransitionHLAPI[]> inputX3bis;
+		ArrayList<Integer> warN;
 		TransitionHLAPI inputX1,inputX2;
 		TransitionHLAPI[] inputX3;
 		PlaceHLAPI princip1,princip2,temp1,temp2,temp3;
@@ -88,20 +89,21 @@ public class LeafSet {
 				manip.arc(true,princip1,inputX2);
 				
 				manip.arc(true,princip2,inputX1);
-				/***
-				inputX3bis=automatesNode[key].getInputX3(key);
+				
+				warN=automatesNode[i].getWarnNodeMaster(key);
+				inputX3bis=automatesNode[i].getInputX3(key);
 				if(inputX3bis!=null){
-					keys2=inputX3bis.keySet();
-					itr2=keys2.iterator();
-					while(itr2.hasNext()) {
-						key2=(int)itr2.next();
-						inputX3=inputX3bis.get(key2);
-						
+					
+					for(int k=0;k<inputX3bis.size();k++) {
+						key2=warN.get(k);
+						inputX3=inputX3bis.get(k);
+								
 						temp1=automatesNode[key2].getTemp1();
 						temp2=automatesNode[key2].getTemp2();
 						temp3=automatesNode[key2].getTemp3();
 						
 						manip.arc(true,temp2,inputX3[1]);
+						manip.arc(false,temp2,inputX3[1]);
 						
 						manip.arc(true,temp1,inputX3[0]);
 						manip.arc(false,temp1,inputX3[0]);
@@ -110,7 +112,6 @@ public class LeafSet {
 						
 					}
 				}
-				***/
 
 			}
 		}
