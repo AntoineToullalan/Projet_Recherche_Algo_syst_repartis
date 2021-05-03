@@ -11,7 +11,7 @@ import fr.lip6.move.pnml.ptnet.hlapi.TransitionHLAPI;
 import fr.lip6.move.pnml.ptnet.CSS2Color;
 
 //=========================================================================
-//ExtremityLeafSet construit les automates de Gx et Dx
+//ExtremityLeafSet construit les automates de Gx1, Dx1,Gx2, Dx2...
 //=========================================================================
 public class ExtremityLeafSet {
 	private int x,y,size,nb_breakdown;
@@ -59,9 +59,9 @@ public class ExtremityLeafSet {
 	}
 	
 	//=========================================================================
-	//LDx construit l'automate de Gx si LxOrRx vaut true, Dx sinon
+	//LDx construit l'automate de Gxi si LxOrRx vaut true, Dxi sinon
 	//=========================================================================
-	public void LDx(boolean LxOrRx,int i) {
+	private void LDx(boolean LxOrRx,int i) {
 		String name;
 		int xplace=0;
 		if(LxOrRx) {
@@ -110,9 +110,10 @@ public class ExtremityLeafSet {
 	}
 	
 	//=========================================================================
-	//buildBranchLDx construit 1 branche dans l'automate de Gx ou Dx
+	//buildBranchLDx construit 1 branche gérant l'envoi de son LeafSet au Node d'id iBranch
+	//dans l'automate de Gxi ou Dxi
 	//=========================================================================
-	public void buildBranchLDx(boolean LxOrRx,int xBranch,int yBranch,int iBranch,int i) {
+	private void buildBranchLDx(boolean LxOrRx,int xBranch,int yBranch,int iBranch,int i) {
 		String name;
 		String nameBranch="Node"+iBranch;
 		if(LxOrRx) {
