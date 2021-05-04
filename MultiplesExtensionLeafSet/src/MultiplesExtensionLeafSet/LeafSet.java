@@ -72,6 +72,10 @@ public class LeafSet {
 			for(int k=0;k<jpc.size();k++) {
 				manip.arc(false,automatesNode[k].getPrincip2(),jpc.get(k));
 				manip.arc(true,automatesNode[k].getPrincip2(),jpc.get(k));
+				
+				manip.arc(false,automatesNode[k].getIsActive(),jpc.get(k));
+				manip.arc(true,automatesNode[k].getIsActive(),jpc.get(k));
+				
 				manip.arc(false,masterExists,jpc.get(k));
 			}
 
