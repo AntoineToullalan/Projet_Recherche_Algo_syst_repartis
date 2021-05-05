@@ -101,7 +101,6 @@ public class LeafSet {
 				princip1=automatesNode[key].getPrincip1();
 				princip2=automatesNode[key].getPrincip2();
 				
-				manip.arc(false,princip1,inputX2);
 				manip.arc(true,princip1,inputX2);
 				
 				manip.arc(true,princip2,inputX1);
