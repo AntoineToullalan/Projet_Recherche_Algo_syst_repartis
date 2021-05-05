@@ -51,13 +51,13 @@ public class LeafSet {
 		ArrayList<PlaceHLAPI>[] placeCommExtremity;
 		ArrayList<PlaceHLAPI> p1_Lx,p2_Lx,p1_Rx,p2_Rx;
 		Hashtable<String,TransitionHLAPI>[][] extComm;
-		Hashtable<Integer,TransitionHLAPI> hashtable1,hashtable2;
+		Hashtable<Integer,TransitionHLAPI> hashtable1;
 		ArrayList<TransitionHLAPI[]> inputX3bis;
 		ArrayList<Integer> warN;
 		ArrayList<TransitionHLAPI> jpc;
 		TransitionHLAPI inputX1,inputX2;
 		TransitionHLAPI[] inputX3;
-		PlaceHLAPI princip1,princip2,temp1,temp2,temp3;
+		PlaceHLAPI princip2,temp1,temp2,temp3;
 		int key,key2;
 		Set keys,keys2;
 		Iterator itr,itr2;
@@ -90,19 +90,13 @@ public class LeafSet {
 				manip.arc(false,p2_Rx.get(j),extComm[3][j].get("Node"+i));
 			}
 			hashtable1=automatesNode[i].getInputX1();
-			hashtable2=automatesNode[i].getInputX2();
 			keys=hashtable1.keySet();
 		    itr=keys.iterator();
 			while(itr.hasNext()) {
 				key = (int)itr.next();
 				inputX1=hashtable1.get(key);
-				inputX2=hashtable2.get(key);
 				
-				princip1=automatesNode[key].getPrincip1();
 				princip2=automatesNode[key].getPrincip2();
-				
-				manip.arc(true,princip1,inputX2);
-				
 				manip.arc(true,princip2,inputX1);
 				
 				warN=automatesNode[i].getWarnNodeMaster(key);

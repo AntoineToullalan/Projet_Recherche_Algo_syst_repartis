@@ -20,7 +20,7 @@ public class AutomateNode {
 	private int num,size,x,y,master,nb_Crash;
 	private String name;
 	private PNMLManipulation manip;
-	private PlaceHLAPI PrincipalNode,IsMaster,notifyNOTMaster,temp3,temp2,temp1,isThereMaster;
+	private PlaceHLAPI PrincipalNode,IsMaster,temp3,temp2,temp1,isThereMaster;
 	private ArrayList<PlaceHLAPI> p1,p2,p3,p4;
 	private ArrayList<TransitionHLAPI> tmpJPC;
 	private TransitionHLAPI brokDown,newMaster,detectNewMaster;
@@ -120,11 +120,6 @@ public class AutomateNode {
 		manip.transition(nameTransition, x+300,y+300, CSS2Color.BLACK);
 		TransitionHLAPI tmp=manip.getTransition();
 		manip.arc(false,IsMaster,manip.getTransition());
-		
-		namePlace=name+"IsNOTTheNodeMaster";
-		manip.place(namePlace,x+300,y+1000,CSS2Color.RED,num!=master);
-		notifyNOTMaster=manip.getPlace();
-		manip.arc(true);
 		
 		namePlace=name+"IsNotifiedThatHeIsTheNewMaster";
 		manip.place(namePlace,x+300,y+1300,CSS2Color.RED,false);
@@ -250,11 +245,6 @@ public class AutomateNode {
 		namePlace=name+"HasDetectedCrashOf"+nameBranch;
 		manip.place(namePlace, xBranch, yBranch, CSS2Color.BLACK, false);
 		manip.arc(false, manip.getPlace(), detectsCrash);
-		
-		nameTransition=name+"DoesntSeekANewMasterToReplace"+nameBranch;
-		manip.transition(nameTransition, xBranch-200, yBranch+300, CSS2Color.BLACK);
-		inputX2.put(iBranch,manip.getTransition());
-		manip.arc(true);
 		
 		nameTransition=name+"SeeksANewMasterToReplace"+nameBranch;
 		manip.transition(nameTransition, xBranch, yBranch+300, CSS2Color.BLACK);
@@ -387,9 +377,6 @@ public class AutomateNode {
 	}
 	public PlaceHLAPI getTemp1() {
 		return temp1;
-	}
-	public PlaceHLAPI getPrincip1() {
-		return notifyNOTMaster;
 	}
 	public PlaceHLAPI getPrincip2() {
 		return IsMaster;
