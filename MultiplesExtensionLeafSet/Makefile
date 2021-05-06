@@ -1,7 +1,7 @@
 help:
 	@echo "Deux arguments possibles :"
 	@echo " - all    : modélise l’extension du LeafSet avec les arguments SIZE-> taille du LeafSet CRASH->nombre de pannes dans le LeafSet"
-	@echo " - test   :  modélise l’extension du LeafSet avec les paramètres SIZE=4 et CRASH =2 »
+	@echo " - test   :  modélise l’extension du LeafSet avec les paramètres SIZE=4 et CRASH =2"
 	@echo " - pretty : formater le PNML de sortie (nom du fichier dans la variable FILE)"
 	@echo
 	@echo "prévoyez 2 arguments : SIZE ->taille du LeafSet et CRASH->nombre de pannes dans le LeafSet"
