@@ -40,4 +40,4 @@ test:
 	./lib/slf4j-jdk14-2.0.0-alpha1.jar" multiplesextensionleafset.Main 4 2 "ExtensionOfLeafSetSize4Crash2"; 
 
 pretty:
-	xmllint -format "testmodel/$(FILE).pnml" > $(FILE).xml
+	xmllint -format "testmodel/$(FILE).pnml" > $(FILE).pnml
