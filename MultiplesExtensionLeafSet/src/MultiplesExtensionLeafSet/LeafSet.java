@@ -51,7 +51,7 @@ public class LeafSet {
 		ArrayList<PlaceHLAPI>[] placeCommExtremity;
 		ArrayList<PlaceHLAPI> p1_Lx,p2_Lx,p1_Rx,p2_Rx;
 		Hashtable<String,TransitionHLAPI>[][] extComm;
-		Hashtable<Integer,TransitionHLAPI> hashtable1;
+		Hashtable<Integer,TransitionHLAPI> hashtable1,hashtable2;
 		ArrayList<TransitionHLAPI[]> inputX3bis;
 		ArrayList<Integer> warN;
 		ArrayList<TransitionHLAPI> jpc;
@@ -94,8 +94,7 @@ public class LeafSet {
 		    itr=keys.iterator();
 			while(itr.hasNext()) {
 				key = (int)itr.next();
-				inputX1=hashtable1.get(key);
-				
+				inputX1=hashtable1.get(key);	
 				princip2=automatesNode[key].getPrincip2();
 				manip.arc(true,princip2,inputX1);
 				

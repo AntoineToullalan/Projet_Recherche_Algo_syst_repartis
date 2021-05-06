@@ -94,7 +94,7 @@ public class AutomateNode {
 		temp1=manip.getPlace();
 		manip.arc(true,temp1,brokDown);
 		
-		manip.place(name+"NotifyThatHeIsNOTActive",x+master*100-200,y,CSS2Color.RED,false);
+		manip.place(name+"i",x+master*100-200,y,CSS2Color.RED,false);
 		temp2=manip.getPlace();
 		manip.arc(false,temp2,brokDown);
 		
@@ -244,8 +244,10 @@ public class AutomateNode {
 		
 		namePlace=name+"HasDetectedCrashOf"+nameBranch;
 		manip.place(namePlace, xBranch, yBranch, CSS2Color.BLACK, false);
-		manip.arc(false, manip.getPlace(), detectsCrash);
-		
+		PlaceHLAPI croire=manip.getPlace();
+		manip.arc(false, croire, detectsCrash);
+		manip.arc(true,croire,transition2.get(nameBranch));
+
 		nameTransition=name+"SeeksANewMasterToReplace"+nameBranch;
 		manip.transition(nameTransition, xBranch, yBranch+300, CSS2Color.BLACK);
 		TransitionHLAPI t=manip.getTransition();
@@ -265,6 +267,7 @@ public class AutomateNode {
 			manip.transition(nameTransition,xBranch+100,i*300+yBranch,CSS2Color.BLACK);
 			inputX3bis.get(i)[0]=manip.getTransition();
 			manip.arc(true);
+			manip.arc(false,croire,manip.getTransition());
 
 			nameTransition="Node"+warNode.get(i)+"IsNotRespondingTo"+name+"ToReplaceNode"+iBranch;
 			manip.transition(nameTransition,xBranch-100,i*300+yBranch,CSS2Color.BLACK);
@@ -276,6 +279,7 @@ public class AutomateNode {
 		
 		inputX3.put(iBranch,inputX3bis);
 		manip.arc(false,temp3,t);
+		manip.arc(false,croire,t);
 		
 		String LxOrRx="Lx";
 		boolean lx=true;
