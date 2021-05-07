@@ -83,18 +83,18 @@ public class AutomateNode {
 		manip.place(name+"IsActive",x+master*100,y,CSS2Color.BLACK,true);
 		PrincipalNode=manip.getPlace();
 		
-		manip.transition(name+"BreaksDown",x+master*100,y-100,CSS2Color.GRAY);
+		manip.transition(name+"Crash",x+master*100,y-100,CSS2Color.GRAY);
 		brokDown=manip.getTransition();
 		manip.arc(true,PrincipalNode,brokDown);
 		
-		manip.place(name+"Failure",x+master*100,y-180,CSS2Color.GRAY,false);
+		manip.place(name+"HasCrashed",x+master*100,y-180,CSS2Color.GRAY,false);
 		manip.arc(false,manip.getPlace(),brokDown);
 
 		manip.place(name+"NotifyThatHeIsActive",x+master*100-300,y,CSS2Color.RED,true);
 		temp1=manip.getPlace();
 		manip.arc(true,temp1,brokDown);
 		
-		manip.place(name+"i",x+master*100-200,y,CSS2Color.RED,false);
+		manip.place("NodesCanDetectThat"+name+"HasCrashed",x+master*100-200,y,CSS2Color.RED,false);
 		temp2=manip.getPlace();
 		manip.arc(false,temp2,brokDown);
 		
