@@ -37,7 +37,7 @@ test:
 	./lib/org.eclipse.emf.common_2.17.0.v20190920-0401.jar:\
 	./lib/org.eclipse.emf.ecore_2.20.0.v20190920-0401.jar:\
 	./lib/org.slf4j.api_1.7.30.v20200204-2150.jar:\
-	./lib/slf4j-jdk14-2.0.0-alpha1.jar" extensionleafset.Main 6 "ExtensionOfLeafSetSize6"; 
+	./lib/slf4j-jdk14-2.0.0-alpha1.jar" extensionleafset.Main 4 "ExtensionOfLeafSetSize4"; 
 
 pretty:
 	xmllint -format "$(FILE)" > p_$(FILE)
